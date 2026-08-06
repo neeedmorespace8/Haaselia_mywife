@@ -18,14 +18,14 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 p-8 text-sm text-slate-800">
+<body class="bg-slate-50 p-3 md:p-8 text-sm text-slate-800">
   <!-- 右下的哈澤 -->
-  <img src="https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_91_1.png" class="fixed bottom-4 right-0 w-48 -z-10 pointer-events-none opacity-90" alt="my_wife">
+  <img src="https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_91_1.png" class="hidden min-[1420px]:block fixed bottom-4 right-0 w-48 -z-10 pointer-events-none opacity-90" alt="my_wife">
   
 <!-- 頂端參考資訊 (裝飾版) -->
-  <div class="max-w-7xl mx-auto mb-6 p-4 bg-blue-50/80 border-l-4 border-blue-400 rounded-r-md shadow-sm flex items-start gap-3">
+  <div class="max-w-6xl ml-10 mb-6 p-4 bg-blue-50/80 border-l-4 border-blue-400 rounded-r-md shadow-sm flex items-start gap-3">
     <span class="text-blue-500 text-lg">💡</span>
-    <div class="text-sm text-slate-700 tracking-wide w-full">
+    <div class="text-sm text-slate-700 tracking-wide w-full flex-col md:flex-row">
       <div class="flex items-start">
         <span class="font-bold text-slate-800 whitespace-nowrap">資料來源參考：</span>
         <div class="flex flex-col gap-1 ml-4">
@@ -44,7 +44,8 @@
   </div>
 
 
-  <div id="all-tables-container" class="space-y-12 mb-12"></div>
+  <!-- <div id="all-tables-container" class="space-y-12 mb-12"></div> -->
+  <div id="all-tables-container"></div>
   <script>
     const menuVoiceData = [
       {
@@ -826,109 +827,124 @@
 
       tableConfigs.forEach(config => {
         
-        // 判斷是否有設定外部大標題
+        // --- 1. 外部大標題區塊 (共用) ---
         if (config.mainTitle || config.subTitle) {
-          htmlString += `<div class="max-w-6xl mx-auto mb-2">`;
-          
+          htmlString += `<div class="max-w-6xl ml-10 mb-2">`;
           if (config.mainTitle) {
             htmlString += `<h2 class="text-2xl font-serif text-slate-800 border-b border-slate-300 pb-1 mb-4">${config.mainTitle}</h2>`;
           }
-          
           if (config.subTitle) {
             htmlString += `<h3 class="text-xl font-bold text-blue-700">${config.subTitle}</h3>`;
           }
-          
           htmlString += `</div>`;
         }
 
         const tableSpacingClass = (config.mainTitle || config.subTitle) ? "!-mt-0" : "";
         const hasCategory = config.hasCategory !== false;
-        let colGroupHtml = "";
-        let theadHtml = "";
+        
+        // 準備分開收集兩種 Layout 的字串
+        let desktopHtml = "";
+        let mobileHtml = "";
 
-        if (hasCategory) {
-          colGroupHtml = `<col class="w-24"><col><col><col class="w-20"><col class="w-40">`;
-          theadHtml = `
-            <tr class="bg-slate-100 text-center text-slate-600">
-              <th class="border-b border-r border-slate-300 p-3">Category</th>
-              <th class="border-b border-r border-slate-300 p-3">Japanese</th>
-              <th class="border-b border-r border-slate-300 p-3">中文翻譯</th>
-              <th class="border-b border-r border-slate-300 p-3">Play</th>
-              <th class="border-b border-slate-300 p-3">來源檔案</th>
-            </tr>
-          `;
-        } else {
-          colGroupHtml = `<col class="w-1/2"><col class="w-1/2"><col class="w-20"><col class="w-40">`;
-          theadHtml = `
-            <tr class="bg-slate-100 text-center text-slate-600">
-              <th class="border-b border-r border-slate-300 p-3">Japanese</th>
-              <th class="border-b border-r border-slate-300 p-3">中文翻譯</th>
-              <th class="border-b border-r border-slate-300 p-3">Play</th>
-              <th class="border-b border-slate-300 p-3">來源檔案</th>
-            </tr>
-          `;
-        }
+        // ==========================================
+        //         【 桌面版佈局 (Desktop) 】
+        // ==========================================
+        // 幫日文和中文的 <col> 加上 w-auto（讓瀏覽器知道它們權重相同），
+        // 並確保其他固定欄位的寬度不動。
+        let colGroupHtml = hasCategory 
+          ? `<col class="w-24"><col class="w-auto"><col class="w-auto"><col class="w-20"><col class="w-40">`
+          : `<col class="w-auto"><col class="w-auto"><col class="w-20"><col class="w-40">`;
 
-        // 表格外框
-        htmlString += `
-          <div class="max-w-6xl mx-auto bg-white border border-slate-300 shadow-sm rounded-md overflow-hidden ${tableSpacingClass}" >
-            <table class="w-full border-collapse table-fixed">
-              <colgroup>
-                ${colGroupHtml}
-              </colgroup>
-              <thead>
-                <tr>
-                  <th colspan="${hasCategory ? 5 : 4}" class="bg-slate-200 border-b border-slate-300 py-3 text-base font-bold text-center text-slate-700">
-                    ${config.title} 
-                  </th>
-                </tr>
-                ${theadHtml}
-              </thead>
+        let theadHtml = hasCategory 
+          ? `
+            <th class="border-b border-r border-slate-300 p-3">Category</th>
+            <th class="border-b border-r border-slate-300 p-3">Japanese</th>
+            <th class="border-b border-r border-slate-300 p-3">中文翻譯</th>
+            <th class="border-b border-r border-slate-300 p-3">Play</th>
+            <th class="border-b border-slate-300 p-3">來源檔案</th>
+          ` 
+          : `
+            <th class="border-b border-r border-slate-300 p-3">Japanese</th>
+            <th class="border-b border-r border-slate-300 p-3">中文翻譯</th>
+            <th class="border-b border-r border-slate-300 p-3">Play</th>
+            <th class="border-b border-slate-300 p-3">來源檔案</th>
+          `;
+
+        // 桌面版外框
+        desktopHtml += `
+          <div class="hidden md:block max-w-6xl ml-10 mb-8 bg-white border border-slate-300 shadow-sm rounded-md overflow-hidden ${tableSpacingClass}">
+            <div class="bg-slate-200 border-b border-slate-300 py-3 text-base font-bold text-center text-slate-700">
+              ${config.title} 
+            </div>
+            
+            <!-- 【關鍵修正】：再次確認這裡是 table-fixed，且設定 break-words 強制長文字換行 -->
+            <table class="w-full border-collapse table-fixed break-words">
+              <colgroup>${colGroupHtml}</colgroup>
+              <thead><tr class="bg-slate-100 text-center text-slate-600">${theadHtml}</tr></thead>
               <tbody>
         `;
 
-        // 迴圈填入資料列
+        // ==========================================
+        //         【 手機版佈局 (Mobile) 】
+        // ==========================================
+        // 手機版外框 (加上 md:hidden，並改用 flex 垂直排列卡片)
+        mobileHtml += `
+          <div class="md:hidden w-full max-w-full px-4 mb-8">
+            <div class="bg-slate-700 border border-slate-700 py-2 text-base font-bold text-center text-white rounded-t-md shadow-sm">
+              ${config.title} 
+            </div>
+            <div class="flex flex-col gap-3 mt-3">
+        `;
+
+        // ==========================================
+        //        【 跑迴圈，同時生成兩套內容 】
+        // ==========================================
         config.data.forEach(group => {
           group.lines.forEach((line, index) => {
             const rawFileName = line.originalUrl.split('/').pop();
             const fileName = rawFileName.replace('_', '_<br>');
             
-            htmlString += `<tr class="hover:bg-slate-50 transition-colors">`;
-            
-            // 如果有開啟 Category，才渲染合併儲存格
+            // --- 寫入桌面版 <tr> (完全不用煩惱隱藏類別，乾淨的表格) ---
+            desktopHtml += `<tr class="hover:bg-slate-50 transition-colors">`;
             if (hasCategory && index === 0) {
-              htmlString += `<td rowspan="${group.lines.length}" class="bg-blue-50 font-semibold p-4 border-b border-r border-slate-300 align-middle text-center text-slate-700">${group.category}</td>`;
+              desktopHtml += `<td rowspan="${group.lines.length}" class="bg-blue-50 font-semibold p-4 border-b border-r border-slate-300 align-middle text-center text-slate-700">${group.category}</td>`;
             }
-
-            if (hasCategory) {
-              htmlString += `
+            desktopHtml += `
                 <td class="p-4 border-b border-r border-slate-300 align-middle leading-relaxed whitespace-pre-wrap">${line.jp}</td>
                 <td class="p-4 border-b border-r border-slate-300 align-middle leading-relaxed text-slate-600 whitespace-pre-wrap">${line.zh}</td>
                 <td class="p-4 border-b border-r border-slate-300 align-middle text-center">
                   <button onclick="playAudio('${line.Audio}')" class="play-btn text-white rounded-full w-12 h-8 flex items-center justify-center mx-auto transition">🔊</button>
                 </td>
-                <td class="p-3 border-b border-slate-300 align-middle text-center text-xs">
+                <td class="p-2 border-b border-slate-300 align-middle text-center text-xs">
                   <a href="${line.originalUrl}" target="_blank" class="text-blue-500 hover:text-blue-700 hover:underline font-mono">${fileName}</a>
                 </td>
-              `;
-            } else {
-              htmlString += `
-                <td class="p-4 border-b border-r border-slate-300 align-middle leading-relaxed whitespace-pre-wrap">${line.jp}</td>
-                <td class="p-4 border-b border-r border-slate-300 align-middle leading-relaxed text-slate-600 whitespace-pre-wrap">${line.zh}</td>
-                <td class="p-4 border-b border-r border-slate-300 align-middle text-center">
-                  <button onclick="playAudio('${line.Audio}')" class="play-btn text-white rounded-full w-12 h-8 flex items-center justify-center mx-auto transition">🔊</button>
-                </td>
-                <td class="p-3 border-b border-slate-300 align-middle text-center text-xs">
-                  <a href="${line.originalUrl}" target="_blank" class="text-blue-500 hover:text-blue-700 hover:underline font-mono">${fileName}</a>
-                </td>
-              `;
-            }
+              </tr>
+            `;
 
-            htmlString += `</tr>`;
+            // --- 寫入手機版 Card (完全脫離 table 限制，自由排版) ---
+            let categoryBadge = (hasCategory && group.category) 
+              ? `<span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">${group.category}</span>` 
+              : '';
+
+            mobileHtml += `
+              <div class="bg-white border border-slate-300 rounded-md p-4 shadow-sm relative">
+                ${categoryBadge}
+                <div class="text-slate-900 font-medium mb-1 whitespace-pre-wrap">${line.jp}</div>
+                <div class="text-slate-500 text-sm mb-4 whitespace-pre-wrap">${line.zh}</div>
+                
+                <!-- 播放按鈕固定在卡片右下角 -->
+                <button onclick="playAudio('${line.Audio}')" class="absolute bottom-4 right-4 play-btn text-white rounded-full w-12 h-8 flex items-center justify-center transition">🔊</button>
+              </div>
+            `;
           });
         });
 
-        htmlString += `</tbody></table></div>`;
+        // 收尾標籤
+        desktopHtml += `</tbody></table></div>`;
+        mobileHtml += `</div></div>`;
+
+        // 將兩種佈局加進總輸出
+        htmlString += desktopHtml + mobileHtml;
       });
 
       container.innerHTML = htmlString;
