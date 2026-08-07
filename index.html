@@ -23,12 +23,16 @@
   <img src="https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_91_1.png" class="hidden min-[1420px]:block fixed bottom-4 right-0 w-48 -z-10 pointer-events-none opacity-90" alt="my_wife">
   
 <!-- 頂端參考資訊 (裝飾版) -->
-  <div class="max-w-6xl ml-10 mb-6 p-4 bg-blue-50/80 border-l-4 border-blue-400 rounded-r-md shadow-sm flex items-start gap-3">
-    <span class="text-blue-500 text-lg">💡</span>
-    <div class="text-sm text-slate-700 tracking-wide w-full flex-col md:flex-row">
-      <div class="flex items-start">
+  <!-- 1. 外層：手機版加上左右外距 mx-4，桌面版取消 mx-0 並加上 ml-10 -->
+  <div class="max-w-6xl mx-4 md:mx-0 md:ml-10 mb-6 p-4 bg-blue-50/80 border-l-4 border-blue-400 rounded-r-md shadow-sm flex items-start gap-3">
+    <!-- <span class="text-blue-500 text-lg mt-0.5">💡</span> -->
+    <div class="text-sm text-slate-700 tracking-wide w-full">
+      <!-- 2. 內層：手機版 flex-col (上下疊放)，桌面版 md:flex-row (左右並排) -->
+      <div class="flex flex-col md:flex-row md:items-start gap-2 md:gap-4">
         <span class="font-bold text-slate-800 whitespace-nowrap">資料來源參考：</span>
-        <div class="flex flex-col gap-1 ml-4">
+        
+        <!-- 3. 移除原本固定的 ml-4，改用父層的 gap 來自動控制間距 -->
+        <div class="flex flex-col gap-2 md:gap-1">
           <a href="https://gbf.wiki/Haaselia/Voice" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors w-fit">
             Granblue Fantasy Wiki (Haaselia)
           </a>
@@ -761,61 +765,61 @@
         data: menuVoiceData 
       },
       {
-        subTitle: "Base Battle Pose",
+        // subTitle: "Base Battle Pose",
         title: "Battle Voice Lines", 
         data: battleVoiceData 
       },
       {
-        subTitle: "各種嬌喘聲 (?)",
+        // subTitle: "各種嬌喘聲 (?)",
         title: "ASMR Voice Lines", 
         data: aegigoeVoiceData
       },
       { 
         mainTitle: "Character Banter", 
-        subTitle: "Katzelia",
-        title: "Battle Voice Lines", 
+        // subTitle: "Katzelia",
+        title: "Katzelia Voice Lines", 
         data: KatzeliabattleVoiceData 
       },
       {
-        subTitle: "From Katzelia <3",
-        title: "Battle Voice Lines", 
+        // subTitle: "From Katzelia <3",
+        title: "From Katzelia Voice Lines", 
         data: fromKatzeliabattleVoiceData
       },
       {
         mainTitle: "Holidays",
-        subTitle: "Happy Birthday",
+        // subTitle: "Happy Birthday",
         hasCategory: false,
-        title: "Home Screen Voice Lines", 
+        title: "Birthday Voice Lines", 
         data: HappyBirthdayVoiceData
       },
       {
-        subTitle: "Happy New Year",
+        // subTitle: "Happy New Year",
         hasCategory: false,
-        title: "Home Screen Voice Lines", 
+        title: "New Year Voice Lines", 
         data: HappyNewYearVoiceData
       },
       {
-        subTitle: "Valentine's Day",
+        // subTitle: "Valentine's Day",
         hasCategory: false,
-        title: "Home Screen Voice Lines", 
+        title: "Valentine's Day Voice Lines", 
         data: ValentineVoiceData
       },
       {
-        subTitle: "White Day",
+        // subTitle: "White Day",
         hasCategory: false,
-        title: "Home Screen Voice Lines", 
+        title: "White Day Voice Lines", 
         data: WhiteVoiceData
       },
       {
-        subTitle: "Halloween",
+        // subTitle: "Halloween",
         hasCategory: false,
-        title: "Home Screen Voice Lines", 
+        title: "Halloween Voice Lines", 
         data: HalloweenVoiceData
       },
       {
-        subTitle: "Christmas",
+        // subTitle: "Christmas",
         hasCategory: false,
-        title: "Home Screen Voice Lines", 
+        title: "Christmas Voice Lines", 
         data: ChristmasVoiceData
       },
     ];
@@ -829,7 +833,7 @@
         
         // --- 1. 外部大標題區塊 (共用) ---
         if (config.mainTitle || config.subTitle) {
-          htmlString += `<div class="max-w-6xl ml-10 mb-2">`;
+          htmlString += `<div class="max-w-6xl md:px-0 md:ml-10 mb-2 px-4">`;
           if (config.mainTitle) {
             htmlString += `<h2 class="text-2xl font-serif text-slate-800 border-b border-slate-300 pb-1 mb-4">${config.mainTitle}</h2>`;
           }
@@ -849,7 +853,6 @@
         // ==========================================
         //         【 桌面版佈局 (Desktop) 】
         // ==========================================
-        // 幫日文和中文的 <col> 加上 w-auto（讓瀏覽器知道它們權重相同），
         // 並確保其他固定欄位的寬度不動。
         let colGroupHtml = hasCategory 
           ? `<col class="w-24"><col class="w-auto"><col class="w-auto"><col class="w-20"><col class="w-40">`
@@ -873,7 +876,7 @@
         // 桌面版外框
         desktopHtml += `
           <div class="hidden md:block max-w-6xl ml-10 mb-8 bg-white border border-slate-300 shadow-sm rounded-md overflow-hidden ${tableSpacingClass}">
-            <div class="bg-slate-200 border-b border-slate-300 py-3 text-base font-bold text-center text-slate-700">
+            <div class="bg-slate-200 border-b border-slate-300 py-3 text-base font-bold text-center text-blue-700">
               ${config.title} 
             </div>
             
@@ -890,10 +893,11 @@
         // 手機版外框 (加上 md:hidden，並改用 flex 垂直排列卡片)
         mobileHtml += `
           <div class="md:hidden w-full max-w-full px-4 mb-8">
-            <div class="bg-slate-700 border border-slate-700 py-2 text-base font-bold text-center text-white rounded-t-md shadow-sm">
-              ${config.title} 
-            </div>
-            <div class="flex flex-col gap-3 mt-3">
+            <div class="bg-white border border-slate-300 rounded-md overflow-hidden shadow-sm">
+              <div class="bg-slate-200 border-b border-slate-300 py-2 text-base font-bold text-center text-blue-700">
+                ${config.title} 
+              </div>
+            <div class="flex flex-col">
         `;
 
         // ==========================================
@@ -904,15 +908,16 @@
             const rawFileName = line.originalUrl.split('/').pop();
             const fileName = rawFileName.replace('_', '_<br>');
             
+            
             // --- 寫入桌面版 <tr> (完全不用煩惱隱藏類別，乾淨的表格) ---
             desktopHtml += `<tr class="hover:bg-slate-50 transition-colors">`;
             if (hasCategory && index === 0) {
-              desktopHtml += `<td rowspan="${group.lines.length}" class="bg-blue-50 font-semibold p-4 border-b border-r border-slate-300 align-middle text-center text-slate-700">${group.category}</td>`;
+              desktopHtml += `<td rowspan="${group.lines.length}" class="bg-blue-50 font-semibold p-2 border-b border-r border-slate-300 align-middle text-center text-slate-700">${group.category}</td>`;
             }
             desktopHtml += `
-                <td class="p-4 border-b border-r border-slate-300 align-middle leading-relaxed whitespace-pre-wrap">${line.jp}</td>
-                <td class="p-4 border-b border-r border-slate-300 align-middle leading-relaxed text-slate-600 whitespace-pre-wrap">${line.zh}</td>
-                <td class="p-4 border-b border-r border-slate-300 align-middle text-center">
+                <td class="p-3 border-b border-r border-slate-300 align-middle leading-relaxed whitespace-pre-wrap">${line.jp}</td>
+                <td class="p-3 border-b border-r border-slate-300 align-middle leading-relaxed text-slate-600 whitespace-pre-wrap">${line.zh}</td>
+                <td class="p-2 border-b border-r border-slate-300 align-middle text-center">
                   <button onclick="playAudio('${line.Audio}')" class="play-btn text-white rounded-full w-12 h-8 flex items-center justify-center mx-auto transition">🔊</button>
                 </td>
                 <td class="p-2 border-b border-slate-300 align-middle text-center text-xs">
@@ -927,7 +932,7 @@
               : '';
 
             mobileHtml += `
-              <div class="bg-white border border-slate-300 rounded-md p-4 shadow-sm relative">
+              <div class="bg-white border-b border-slate-300 p-4 relative last:border-b-0">
                 ${categoryBadge}
                 <div class="text-slate-900 font-medium mb-1 whitespace-pre-wrap">${line.jp}</div>
                 <div class="text-slate-500 text-sm mb-4 whitespace-pre-wrap">${line.zh}</div>
@@ -941,7 +946,7 @@
 
         // 收尾標籤
         desktopHtml += `</tbody></table></div>`;
-        mobileHtml += `</div></div>`;
+        mobileHtml += `</div></div></div>`;
 
         // 將兩種佈局加進總輸出
         htmlString += desktopHtml + mobileHtml;
