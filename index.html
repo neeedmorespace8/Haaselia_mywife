@@ -1,881 +1,1151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haaselia Voice Lines</title>
-  <link rel="icon" href="https://cdn.discordapp.com/emojis/1491007642167152640.webp?size=128" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haaselia Voice Lines</title>
+    <link
+      rel="icon"
+      href="https://cdn.discordapp.com/emojis/1491007642167152640.webp?size=128"
+      type="image/png"
+    />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .play-btn {
-      background: linear-gradient(to bottom, #a3b8cc, #7a94a6);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.3);
-    }
-    .play-btn:active {
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
-      transform: translateY(1px);
-    }
-  </style>
-</head>
-<body class="bg-slate-50 p-3 md:p-8 text-sm text-slate-800">
-  <!-- 右下的哈澤 -->
-  <img src="https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_91_1.png" class="hidden min-[1420px]:block fixed bottom-4 right-0 w-48 -z-10 pointer-events-none opacity-90" alt="my_wife">
-  
-<!-- 頂端參考資訊 (裝飾版) -->
-  <!-- 1. 外層：手機版加上左右外距 mx-4，桌面版取消 mx-0 並加上 ml-10 -->
-  <div class="max-w-6xl mx-4 md:mx-0 md:ml-10 mb-6 p-4 bg-blue-50/80 border-l-4 border-blue-400 rounded-r-md shadow-sm flex items-start gap-3">
-    <!-- <span class="text-blue-500 text-lg mt-0.5">💡</span> -->
-    <div class="text-sm text-slate-700 tracking-wide w-full">
-      <!-- 2. 內層：手機版 flex-col (上下疊放)，桌面版 md:flex-row (左右並排) -->
-      <div class="flex flex-col md:flex-row md:items-start gap-2 md:gap-4">
-        <span class="font-bold text-slate-800 whitespace-nowrap">資料來源參考：</span>
-        
-        <!-- 3. 移除原本固定的 ml-4，改用父層的 gap 來自動控制間距 -->
-        <div class="flex flex-col gap-2 md:gap-1">
-          <a href="https://gbf.wiki/Haaselia/Voice" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors w-fit">
-            Granblue Fantasy Wiki (Haaselia)
-          </a>
-          <a href="https://gbf.wiki/Haaselia_(Summer)/Voice" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors w-fit">
-            Granblue Fantasy Wiki (Haaselia Summer)
-          </a>
-          <a href="https://gbf.wiki/Zeta/Voice" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors w-fit">
-            Granblue Fantasy Wiki (Zeta)
-          </a>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .play-btn {
+        background: linear-gradient(to bottom, #a3b8cc, #7a94a6);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.5),
+          0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+      .play-btn:active {
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+        transform: translateY(1px);
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 p-3 md:p-8 text-sm text-slate-800">
+    <!-- 右下的哈澤 -->
+    <img
+      id="my_cute_wife"
+      src="https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_91_1.png"
+      class="hidden min-[1420px]:block fixed bottom-4 right-0 w-48 -z-10 pointer-events-none opacity-90 transition-all duration-300"
+      alt="my_wife"
+    />
+
+    <!-- 頂端參考資訊 (裝飾版) -->
+    <!-- 1. 外層：手機版加上左右外距 mx-4，桌面版取消 mx-0 並加上 ml-10 -->
+    <div
+      class="max-w-6xl mx-4 md:mx-0 md:ml-10 mb-6 p-4 bg-blue-50/80 border-l-4 border-blue-400 rounded-r-md shadow-sm flex items-start gap-3"
+    >
+      <!-- <span class="text-blue-500 text-lg mt-0.5">💡</span> -->
+      <div class="text-sm text-slate-700 tracking-wide w-full">
+        <!-- 2. 內層：手機版 flex-col (上下疊放)，桌面版 md:flex-row (左右並排) -->
+        <div class="flex flex-col md:flex-row md:items-start gap-2 md:gap-4">
+          <span class="font-bold text-slate-800 whitespace-nowrap"
+            >資料來源參考：</span
+          >
+
+          <!-- 3. 移除原本固定的 ml-4，改用父層的 gap 來自動控制間距 -->
+          <div class="flex flex-col gap-2 md:gap-1">
+            <a
+              href="https://gbf.wiki/Haaselia/Voice"
+              target="_blank"
+              class="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors w-fit"
+            >
+              Granblue Fantasy Wiki (Haaselia)
+            </a>
+            <a
+              href="https://gbf.wiki/Haaselia_(Summer)/Voice"
+              target="_blank"
+              class="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors w-fit"
+            >
+              Granblue Fantasy Wiki (Haaselia Summer)
+            </a>
+            <a
+              href="https://gbf.wiki/Zeta/Voice"
+              target="_blank"
+              class="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors w-fit"
+            >
+              Granblue Fantasy Wiki (Zeta)
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <!-- <div id="all-tables-container" class="space-y-12 mb-12"></div> -->
+    <div id="all-tables-container"></div>
+    <script>
+      const menuVoiceData = [
+        {
+          category: "Recruit",
+          lines: [
+            {
+              jp: "ガルゲニア公国第6皇子、ハーゼリーラ・アロイス・ガングスと申します。以後、お見知りおきを。",
+              zh: "卡露格尼亞公國第六皇子，\n哈澤利拉・阿格伊斯・網古斯。還請妳記住我。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_introduce1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_introduce1.mp3",
+            },
+          ],
+        },
+        {
+          category: "Home Screen",
+          lines: [
+            {
+              jp: "淑女たる者、いついかなる時も立ち居振る舞いには気を付けませんと。",
+              zh: "身為淑女，不管任何時候都要注意言行舉止呢。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage1.mp3",
+            },
+            {
+              jp: "子供は無邪気で可愛いですわね。子供と遊んでいると、気分が和やかになりますわ。それに、からかい甲斐もあって…あ、いえ、何でもありませんわ。",
+              zh: "小孩子真是天真可愛呢。和小孩子一起玩的時候，心情也會變好。而且捉弄起來也…阿…沒…我什麼都沒說。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage2.mp3",
+            },
+            {
+              jp: "レティ…みんな…あんた達の仇は、私が必ず討つわ。あんた達の死を、絶対に無駄にはしないから。",
+              zh: "蕾蒂…大家…你們大家的仇人，我一定會殺死的。\n我一定不會讓你們白白的死去。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage3.mp3",
+            },
+          ],
+        },
+        {
+          category: "Add to Party",
+          lines: [
+            {
+              jp: "期待に沿えるよう頑張ります",
+              zh: "我會努力完成妳們的期待",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation01.mp3",
+            },
+            {
+              jp: "ハーゼを守ってくださいね",
+              zh: "要保護好哈澤哦",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation02.mp3",
+            },
+            {
+              jp: "",
+              zh: "真是拿妳沒辦法呢",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation03.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation03.mp3",
+            },
+            {
+              jp: "私についてきなさい",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation04.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation04.mp3",
+            },
+            {
+              jp: "",
+              zh: "<b>[已棄用]</b> 3040168000_03_formation01b.mp3 是重錄製版",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation01.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation01b.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation01b.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation02.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation03.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation03.mp3",
+            },
+          ],
+        },
+        {
+          category: "Uncap",
+          lines: [
+            {
+              jp: "もうお飾りとは呼ばせませんわ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_evolution01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_evolution01.mp3",
+            },
+          ],
+        },
+        {
+          category: "EM Lvl Up",
+          lines: [
+            {
+              jp: "この力は、理想のために･･･！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_evolution02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_evolution02.mp3",
+            },
+          ],
+        },
+        {
+          category: "Journal",
+          lines: [
+            {
+              jp: "ハーゼ特製のお菓子はいかが？",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_archive01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_archive01.mp3",
+            },
+            {
+              jp: "じっとしてなさい！似顔絵描いてあげるから。",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_archive02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_archive02.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive01.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive02.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive03.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive03.mp3",
+            },
+          ],
+        },
+        {
+          category: "EM Perk Lvl Up",
+          lines: [
+            {
+              jp: "新たな力に目覚めましたわ",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_zenith_up01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_zenith_up01.mp3",
+            },
+            {
+              jp: "一回り大人になったかしら",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_zenith_up02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_zenith_up02.mp3",
+            },
+            {
+              jp: "やりました！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_022.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_022.mp3",
+            },
+          ],
+        },
+      ];
 
-  <!-- <div id="all-tables-container" class="space-y-12 mb-12"></div> -->
-  <div id="all-tables-container"></div>
-  <script>
-    const menuVoiceData = [
-      {
-        category: "Recruit",
-        lines: [
-          {
-            jp: "ガルゲニア公国第6皇子、ハーゼリーラ・アロイス・ガングスと申します。以後、お見知りおきを。",
-            zh: "卡露格尼亞公國第六皇子，\n哈澤利拉・阿格伊斯・網古斯。還請妳記住我。",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_introduce1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_introduce1.mp3"
-          }
-        ]
-      },
-      {
-        category: "Home Screen",
-        lines: [
-          {
-            jp: "淑女たる者、いついかなる時も立ち居振る舞いには気を付けませんと。",
-            zh: "身為淑女，不管任何時候都要注意言行舉止呢。",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage1.mp3"
-          },
-          {
-            jp: "子供は無邪気で可愛いですわね。子供と遊んでいると、気分が和やかになりますわ。それに、からかい甲斐もあって…あ、いえ、何でもありませんわ。",
-            zh: "小孩子真是天真可愛呢。和小孩子一起玩的時候，心情也會變好。而且捉弄起來也…阿…沒…我什麼都沒說。",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage2.mp3"
-          },
-          {
-            jp: "レティ…みんな…あんた達の仇は、私が必ず討つわ。あんた達の死を、絶対に無駄にはしないから。",
-            zh: "蕾蒂…大家…你們大家的仇人，我一定會殺死的。\n我一定不會讓你們白白的死去。",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage3.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mypage3.mp3"
-          },
-        ]
-      },
-      {
-        category: "Add to Party",
-        lines: [
-          {
-            jp: "期待に沿えるよう頑張ります",
-            zh: "我會努力完成妳們的期待",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation01.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation01.mp3"
-          },
-          {
-            jp: "ハーゼを守ってくださいね",
-            zh: "要保護好哈澤哦",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation02.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation02.mp3"
-          },
-          {
-            jp: "",
-            zh: "真是拿妳沒辦法呢",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation03.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation03.mp3"
-          },
-          {
-            jp: "私についてきなさい",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation04.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_formation04.mp3"
-          },
-          {
-            jp: "",
-            zh: "<b>[已棄用]</b> 3040168000_03_formation01b.mp3 是重錄製版",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation01.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation01.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation01b.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation01b.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation02.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation02.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation03.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_formation03.mp3"
-          },
-        ]
-      },
-      {
-        category: "Uncap",
-        lines:[
-          {
-            jp: "もうお飾りとは呼ばせませんわ！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_evolution01.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_evolution01.mp3"
-          }
-        ]
-      },
-      {
-        category: "EM Lvl Up",
-        lines:[
-          {
-            jp: "この力は、理想のために･･･！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_evolution02.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_evolution02.mp3"
-          }
-        ]
-      },
-      {
-        category: "Journal",
-        lines:[
-          {
-            jp: "ハーゼ特製のお菓子はいかが？",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_archive01.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_archive01.mp3"
-          },
-          {
-            jp: "じっとしてなさい！似顔絵描いてあげるから。",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_archive02.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_archive02.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive01.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive01.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive02.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive02.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive03.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_archive03.mp3"
-          }
-        ]
-      },
-      {
-        category: "EM Perk Lvl Up",
-        lines:[
-          {
-            jp: "新たな力に目覚めましたわ",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_zenith_up01.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_zenith_up01.mp3"
-          },
-          {
-            jp: "一回り大人になったかしら",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_zenith_up02.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_zenith_up02.mp3"
-          },
-          {
-            jp: "やりました！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_022.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_022.mp3"
-          },
-        ]
-      },
-    ];
-    
-    const battleVoiceData = [
-      {
-        category: "Normal Attack",
-        lines: [
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack01.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack01.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack02.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack02.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack03.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack03.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack04.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack04.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack05.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack05.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack06.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack06.mp3"
-          },
-          {
-            jp: "それっ",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack07.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack07.mp3"
-          },
-          {
-            jp: "えいっ!",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack08.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack08.mp3"
-          },
-          {
-            jp: "うふふっ",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack09.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack09.mp3"
-          },
-          {
-            jp: "ふん！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack10.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack10.mp3"
-          },
-          {
-            jp: "甘いわ",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack11.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack11.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack12.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack12.mp3"
-          },
-          {
-            jp: "邪魔！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack13.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack13.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack14.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack14.mp3"
-          },
-        ]
-      },
-      {
-        category: "Enemy Defeated",
-        lines:[
-          {
-            jp: "やりましたわ！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_kill01.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_kill01.mp3"
-          },
-          {
-            jp: "馬鹿ね",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack15.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack15.mp3"
-          }
-        ]
-      },
-      {
-        category: "???",
-        lines:[
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack16.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack16.mp3"
-          }
-        ]
-      },
-      {
-        category: "Skill",
-        lines:[
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them1.mp3"
-          },
-          {
-            jp: "抵抗は無駄ですわ",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them2.mp3"
-          },
-          {
-            jp: "猶予なんて与えないわよ！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them3.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them3.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them4.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them4.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us1.mp3"
-          },
-          {
-            jp: "もう一分張りですわ",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us2.mp3"
-          },
-          {
-            jp: "弱気になるんじゃないわよ！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us3.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us3.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them4.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them4.mp3"
-          },
-        ]
-      },
-      {
-        category: "",
-        lines:[
+      const battleVoiceData = [
+        {
+          category: "Normal Attack",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack01.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack02.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack03.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack03.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack04.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack04.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack05.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack05.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack06.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack06.mp3",
+            },
+            {
+              jp: "それっ",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack07.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack07.mp3",
+            },
+            {
+              jp: "えいっ!",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack08.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack08.mp3",
+            },
+            {
+              jp: "うふふっ",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack09.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack09.mp3",
+            },
+            {
+              jp: "ふん！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack10.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack10.mp3",
+            },
+            {
+              jp: "甘いわ",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack11.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack11.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack12.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack12.mp3",
+            },
+            {
+              jp: "邪魔！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack13.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack13.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack14.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack14.mp3",
+            },
+          ],
+        },
+        {
+          category: "Enemy Defeated",
+          lines: [
+            {
+              jp: "やりましたわ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_kill01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_kill01.mp3",
+            },
+            {
+              jp: "馬鹿ね",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack15.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack15.mp3",
+            },
+          ],
+        },
+        {
+          category: "???",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack16.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_attack16.mp3",
+            },
+          ],
+        },
+        {
+          category: "Skill",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them1.mp3",
+            },
+            {
+              jp: "抵抗は無駄ですわ",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them2.mp3",
+            },
+            {
+              jp: "猶予なんて与えないわよ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them3.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them4.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_them4.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us1.mp3",
+            },
+            {
+              jp: "もう一分張りですわ",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us2.mp3",
+            },
+            {
+              jp: "弱気になるんじゃないわよ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us3.mp3",
+            },
+            {
+              jp: "力が満ちて来たでしょう",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us4.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ability_us4.mp3",
+            },
+          ],
+        },
+        {
+          category: "C.A. Ready",
+          lines: [
+            {
+              jp: "とどめですわ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ready01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ready01.mp3",
+            },
+            {
+              jp: "痛い目見せてあげる！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ready02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_ready02.mp3",
+            },
+          ],
+        },
+        {
+          category: "Charge Attack",
+          lines: [
+            {
+              jp: "あなたの欺瞞を暴きますわ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal1.mp3",
+            },
+            {
+              jp: "邪魔をするなら容赦はしない！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal2.mp3",
+            },
+            {
+              jp: "モーントリヒト！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal3_a.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal3_a.mp3",
+            },
+            {
+              jp: "あなたの欺瞞を暴きますわ！モーントリヒト！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal4.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal4.mp3",
+            },
+            {
+              jp: "邪魔をするなら容赦はしない！モーントリヒト！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal5.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_mortal5.mp3",
+            },
+          ],
+        },
+        {
+          category: "",
+          lines: [],
+        },
+      ];
+      // 從 3040168000_v_001.mp3 到 3040168000_v_372.mp3
+      const aegigoeVoiceData = [
+        {
+          category: "ASMR",
+          lines: [
+            {
+              jp: '這邊 Dola 會愛的<img src="https://cdn.discordapp.com/emojis/862686706188812299.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">',
+              zh: '這裡太多了有 372 個<img src="https://cdn.discordapp.com/emojis/1490898237866115214.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">\n之後應該會做分頁連結',
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_369.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_369.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_370.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_370.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_371.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_371.mp3",
+            },
+            {
+              jp: '老婆真香 <img src="https://cdn.discordapp.com/emojis/604991452564684811.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">',
+              zh: `<span class=' text-slate-400  relative top-[2px]'>Dola 乾掉惹</span> <img src="https://cdn.discordapp.com/emojis/994187094459158598.webp?size=128&animated=true" class="w-6 h-6 inline-block align-middle" alt="emoji">`,
+              // zh: '<img src="https://cdn.discordapp.com/emojis/994187094459158598.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">',
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_372.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_372.mp3",
+            },
+          ],
+        },
+      ];
 
-        ]
-      },
-      {
-        category: "",
-        lines:[
+      const KatzeliabattleVoiceData = [
+        {
+          category: "Join Battle",
+          lines: [
+            {
+              jp: "<b>ハーゼ</b>:「守られるだけの私じゃないわ。」\n<b>カッツェリーラ</b>:「成長したな。ハーゼ。」",
+              zh: "<b>哈澤</b>:「我已經不是需要保護的我了。」\n<b>皇帝</b>:「長大了呢。哈澤。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_1.mp3",
+            },
+          ],
+        },
+        {
+          category: "Knocked Out",
+          lines: [
+            {
+              jp: "<b>ハーゼ</b>:「しまった。」\n<b>カッツェリーラ</b>:「よくもハーゼを！ 許さん！」",
+              zh: "<b>哈澤</b>:「糟糕了。」\n<b>皇帝</b>:「你僅敢...讓哈澤....不會放過你的！」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_2.mp3",
+            },
+          ],
+        },
+        {
+          category: "Victory",
+          lines: [
+            {
+              jp: "<b>ハーゼ</b>:「退屈な相手だったわ。」\n<b>カッツェリーラ</b>:「ハーゼと共に戦えて、私は楽しかったがな。」",
+              zh: "<b>哈澤</b>:「真是無聊的對手呢。」\n<b>皇帝</b>:「能與哈澤一起戰鬥，我倒是很開心呢。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_3.mp3",
+            },
+          ],
+        },
+        {
+          category: "C.A. Ready",
+          lines: [
+            {
+              jp: "<b>ハーゼ</b>:「格の違いを見せてやるわ。」\n<b>カッツェリーラ</b>:「ハーゼの勇姿、しかと目に焼き付けよう。」",
+              zh: "<b>哈澤</b>:「我會讓你們看看差距在哪。」\n<b>皇帝</b>:「哈澤的勇姿，我會好好用眼睛記錄下來的。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_4.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_4.mp3",
+            },
+          ],
+        },
+        {
+          category: "Red HP",
+          lines: [
+            {
+              jp: "<b>ハーゼ</b>:「情けない……」\n<b>カッツェリーラ</b>:「ハーゼは命に代えても私が守る！」",
+              zh: "<b>哈澤</b>:「真是丟臉……」\n<b>皇帝</b>:「就算用上我的命，我也會保護哈澤！」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_5.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_5.mp3",
+            },
+          ],
+        },
+        {
+          category: "Skill 1",
+          lines: [
+            {
+              jp: "<b>ハーゼ</b>:「遅れないでよ、兄上！」\n<b>カッツェリーラ</b>:「ふっ。誰に言っている？」",
+              zh: "<b>哈澤</b>:「不要被丟下哦，兄長大人！」\n<b>皇帝</b>:「哼!妳是在跟誰說呢？」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_6.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_6.mp3",
+            },
+          ],
+        },
+        {
+          category: "Skill 2",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「戦う姿も美しいな。」\n<b>ハーゼ</b>:「集中してもらえますか、兄上。」",
+              zh: "<b>皇帝</b>:「戰鬥的樣子也好美ㄚ。」\n<b>哈澤</b>:「能不能好好專心ㄚ，兄長大人。」\n<span class=' text-slate-400  relative top-[2px]'>(這個嫌棄的聲音好讚</span> <span class='font-bold text-slate-200 text-xs relative top-[2px]'>by Dola</span>",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_7.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_7.mp3",
+            },
+          ],
+        },
+        {
+          category: "Skill 3",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「華麗な技だった。」\n<b>ハーゼ</b>:「それほどでもあるわ。」",
+              zh: "<b>皇帝</b>:「真是華麗的絕招。」\n<b>哈澤</b>:「也沒有那麼厲害啦。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_8.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_8.mp3",
+            },
+          ],
+        },
+      ];
 
-        ]
-      },
-      {
-        category: "",
-        lines:[
+      const fromKatzeliabattleVoiceData = [
+        {
+          category: "Join Battle",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「私たちの絆を見せようか、ハーゼ！」\n<b>ハーゼ</b>:「兄上、よそ見しないで。」",
+              zh: "<b>皇帝</b>:「展現我們之間的羈絆吧，哈澤！」\n<b>哈澤</b>:「兄長大人，請不要東張西望的。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_1.mp3",
+            },
+          ],
+        },
+        {
+          category: "Knocked Out",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「ふがいない兄ですまない。」\n<b>ハーゼ</b>:「ゆっくり休めばいいわ。」",
+              zh: "<b>皇帝</b>:「我是不中用的哥哥，真是抱歉。」\n<b>哈澤</b>:「好好休息吧。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_2.mp3",
+            },
+          ],
+        },
+        {
+          category: "Victory",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「ハーゼ、怪我はないか！？」\n<b>ハーゼ</b>:「心配しすぎよ。まったく。」",
+              zh: "<b>皇帝</b>:「哈澤!!妳沒受傷吧！？」\n<b>哈澤</b>:「你太擔心了啦。真是的。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_3.mp3",
+            },
+          ],
+        },
+        {
+          category: "C.A. Ready",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「判決を下す！」\n<b>ハーゼ</b>:「地獄行きよ。」",
+              zh: "<b>皇帝</b>:「下達判決！」\n<b>哈澤</b>:「去地獄吧。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_4.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_4.mp3",
+            },
+          ],
+        },
+        {
+          category: "Red HP",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「無様な姿だ……」\n<b>ハーゼ</b>:「たまには私を頼りなさい。」",
+              zh: "<b>皇帝</b>:「真是丟臉的樣子……」\n<b>哈澤</b>:「偶爾也依靠我一點。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_5.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_5.mp3",
+            },
+          ],
+        },
+        {
+          category: "Skill 1",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「美しい音色だ。」\n<b>ハーゼ</b>:「まあ、優雅なことで。」",
+              zh: "<b>皇帝</b>:「真是美麗的音色。」\n<b>哈澤</b>:「嘛~真是優雅呢。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_6.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_6.mp3",
+            },
+          ],
+        },
+        {
+          category: "Skill 2",
+          lines: [
+            {
+              jp: "<b>カッツェリーラ</b>:「見ているか、ハーゼよ！」\n<b>ハーゼ</b>:「あらごめんなさい。ちょっとよそ見を。」",
+              zh: "<b>皇帝</b>:「你有在看嗎！哈澤！」\n<b>哈澤</b>:「我在東張西望。抱歉捏。」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_7.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_7.mp3",
+            },
+          ],
+        },
+        {
+          category: "Skill 3",
+          lines: [
+            {
+              jp: "<b>ハーゼ</b>:「ふん、やるじゃない。」\n<b>カッツェリーラ</b>:「ハーゼに褒められた！」",
+              zh: "<b>哈澤</b>:「嗯~幹得不錯嗎。」\n<b>皇帝</b>:「被哈澤稱讚了！」",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_8.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_8.mp3",
+            },
+          ],
+        },
+      ];
 
-        ]
-      },
-    ];
-// 從 3040168000_v_001.mp3 到 3040168000_v_372.mp3
-    const aegigoeVoiceData = [
-      {
-        category: "ASMR",
-        lines: [
-          {
-            jp: '這邊 Dola 會愛的<img src="https://cdn.discordapp.com/emojis/862686706188812299.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">',
-            zh: '這裡太多了有 372 個<img src="https://cdn.discordapp.com/emojis/1490898237866115214.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">\n之後應該會做分頁連結',
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_369.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_369.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_370.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_370.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_371.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_371.mp3"
-          },
-          {
-            jp: '老婆真香<img src="https://cdn.discordapp.com/emojis/604991452564684811.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">',
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_372.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_372.mp3"
-          },
-        ]
-      },
-    ];
+      const HappyBirthdayVoiceData = [
+        {
+          category: "",
+          lines: [
+            {
+              jp: "お誕生日おめでとうございます。",
+              zh: "生日快樂。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage1.mp3",
+            },
+            {
+              jp: "大切な人に祝ってもらえることは、決して当たり前のことではありませんわ。日々感謝しなければいけませんわよ。団長さん。",
+              zh: "能得到重要之人的祝福，這可絕對不是理所當然的事情喔。必須每天心懷感激才行呢，團長。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage2.mp3",
+            },
+          ],
+        },
+      ];
 
-    const KatzeliabattleVoiceData = [
-      {
-        category: "Join Battle",
-        lines: [
-          {
-            jp: "<b>ハーゼ</b>:「守られるだけの私じゃないわ。」\n<b>カッツェリーラ</b>:「成長したな。ハーゼ。」",
-            zh: "<b>哈澤</b>:「我已經不是需要保護的我了。」\n<b>皇帝</b>:「長大了呢。哈澤。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_1.mp3"
-          }
-        ]
-      },
-      {
-        category: "Knocked Out",
-        lines: [
-          {
-            jp: "<b>ハーゼ</b>:「しまった。」\n<b>カッツェリーラ</b>:「よくもハーゼを！ 許さん！」",
-            zh: "<b>哈澤</b>:「糟糕了。」\n<b>皇帝</b>:「你僅敢...讓哈澤....不會放過你的！」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_2.mp3"
-          }
-        ]
-      },
-      {
-        category: "Victory",
-        lines: [
-          {
-            jp: "<b>ハーゼ</b>:「退屈な相手だったわ。」\n<b>カッツェリーラ</b>:「ハーゼと共に戦えて、私は楽しかったがな。」",
-            zh: "<b>哈澤</b>:「真是無聊的對手呢。」\n<b>皇帝</b>:「能與哈澤一起戰鬥，我倒是很開心呢。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_3.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_3.mp3"
-          }
-        ]
-      },
-      {
-        category: "C.A. Ready",
-        lines: [
-          {
-            jp: "<b>ハーゼ</b>:「格の違いを見せてやるわ。」\n<b>カッツェリーラ</b>:「ハーゼの勇姿、しかと目に焼き付けよう。」",
-            zh: "<b>哈澤</b>:「我會讓你們看看差距在哪。」\n<b>皇帝</b>:「哈澤的勇姿，我會好好用眼睛記錄下來的。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_4.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_4.mp3"
-          }
-        ]
-      },
-      {
-        category: "Red HP",
-        lines: [
-          {
-            jp: "<b>ハーゼ</b>:「情けない……」\n<b>カッツェリーラ</b>:「ハーゼは命に代えても私が守る！」",
-            zh: "<b>哈澤</b>:「真是丟臉……」\n<b>皇帝</b>:「就算用上我的命，我也會保護哈澤！」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_5.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_5.mp3"
-          }
-        ]
-      },
-      {
-        category: "Skill 1",
-        lines: [
-          {
-            jp: "<b>ハーゼ</b>:「遅れないでよ、兄上！」\n<b>カッツェリーラ</b>:「ふっ。誰に言っている？」",
-            zh: "<b>哈澤</b>:「不要被丟下哦，兄長大人！」\n<b>皇帝</b>:「哼!妳是在跟誰說呢？」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_6.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_6.mp3"
-          }
-        ]
-      },
-      {
-        category: "Skill 2",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「戦う姿も美しいな。」\n<b>ハーゼ</b>:「集中してもらえますか、兄上。」",
-            zh: "<b>皇帝</b>:「戰鬥的樣子也好美ㄚ。」\n<b>哈澤</b>:「能不能好好專心ㄚ，兄長大人。」\n(這個嫌棄的聲音好讚 <span class='font-bold text-slate-200 text-xs relative top-[2px]'>by Dola</span>",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_7.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_7.mp3"
-          }
-        ]
-      },
-      {
-        category: "Skill 3",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「華麗な技だった。」\n<b>ハーゼ</b>:「それほどでもあるわ。」",
-            zh: "<b>皇帝</b>:「真是華麗的絕招。」\n<b>哈澤</b>:「也沒有那麼厲害啦。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_8.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_pair_1_8.mp3"
-          }
-        ]
-      },
-    ];
+      const HappyNewYearVoiceData = [
+        {
+          category: "",
+          lines: [
+            {
+              jp: "あけましておめでとうございます。",
+              zh: "新年快樂。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage1.mp3",
+            },
+            {
+              jp: "書き初めで絵を描いてみようと思うの。ふふっ。今から大作の予感がするわ。",
+              zh: "我想在新年試筆的時候試著畫一幅畫。呵呵，我現在就已經預感到這會是一幅大作了呢。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage2.mp3",
+            },
+          ],
+        },
+      ];
 
-    const fromKatzeliabattleVoiceData = [
-      {
-        category: "Join Battle",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「私たちの絆を見せようか、ハーゼ！」\n<b>ハーゼ</b>:「兄上、よそ見しないで。」",
-            zh: "<b>皇帝</b>:「展現我們之間的羈絆吧，哈澤！」\n<b>哈澤</b>:「兄長大人，請不要東張西望的。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_1.mp3"
-          }
-        ]
-      },
-      {
-        category: "Knocked Out",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「ふがいない兄ですまない。」\n<b>ハーゼ</b>:「ゆっくり休めばいいわ。」",
-            zh: "<b>皇帝</b>:「我是不中用的哥哥，真是抱歉。」\n<b>哈澤</b>:「好好休息吧。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_2.mp3"
-          }
-        ]
-      },
-      {
-        category: "Victory",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「ハーゼ、怪我はないか！？」\n<b>ハーゼ</b>:「心配しすぎよ。まったく。」",
-            zh: "<b>皇帝</b>:「哈澤!!妳沒受傷吧！？」\n<b>哈澤</b>:「你太擔心了啦。真是的。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_3.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_3.mp3"
-          }
-        ]
-      },
-      {
-        category: "C.A. Ready",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「判決を下す！」\n<b>ハーゼ</b>:「地獄行きよ。」",
-            zh: "<b>皇帝</b>:「下達判決！」\n<b>哈澤</b>:「去地獄吧。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_4.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_4.mp3"
-          }
-        ]
-      },
-      {
-        category: "Red HP",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「無様な姿だ……」\n<b>ハーゼ</b>:「たまには私を頼りなさい。」",
-            zh: "<b>皇帝</b>:「真是丟臉的樣子……」\n<b>哈澤</b>:「偶爾也依靠我一點。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_5.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_5.mp3"
-          }
-        ]
-      },
-      {
-        category: "Skill 1",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「美しい音色だ。」\n<b>ハーゼ</b>:「まあ、優雅なことで。」",
-            zh: "<b>皇帝</b>:「真是美麗的音色。」\n<b>哈澤</b>:「嘛~真是優雅呢。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_6.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_6.mp3"
-          }
-        ]
-      },
-      {
-        category: "Skill 2",
-        lines: [
-          {
-            jp: "<b>カッツェリーラ</b>:「見ているか、ハーゼよ！」\n<b>ハーゼ</b>:「あらごめんなさい。ちょっとよそ見を。」",
-            zh: "<b>皇帝</b>:「你有在看嗎！哈澤！」\n<b>哈澤</b>:「我在東張西望。抱歉捏。」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_7.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_7.mp3"
-          }
-        ]
-      },
-      {
-        category: "Skill 3",
-        lines: [
-          {
-            jp: "<b>ハーゼ</b>:「ふん、やるじゃない。」\n<b>カッツェリーラ</b>:「ハーゼに褒められた！」",
-            zh: "<b>哈澤</b>:「嗯~幹得不錯嗎。」\n<b>皇帝</b>:「被哈澤稱讚了！」",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_8.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040166000_pair_1_8.mp3"
-          }
-        ]
-      },
-    ];
+      const ValentineVoiceData = [
+        {
+          category: "",
+          lines: [
+            {
+              jp: "ハッピーバレンタイン、ですわ。",
+              zh: "情人節快樂。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_valentine_mypage1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_valentine_mypage1.mp3",
+            },
+            {
+              jp: "昔はレティと毎年、友チョコを渡しあっていたわね。懐かしいわ。",
+              zh: "以前每年都會和蕾蒂互相交換友情巧克力呢。真懷念啊。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_valentine_mypage2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_valentine_mypage2.mp3",
+            },
+          ],
+        },
+      ];
 
-    const HappyBirthdayVoiceData = [
-      {
-        category: "",
-        lines: [
-          {
-            jp: "お誕生日おめでとうございます",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage1.mp3"
-          },
-          {
-            jp: "大切な人に祝ってもらえることは、決して当たり前のことではありませんわ。日々感謝しなければいけませんわよ。団長さん",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage2.mp3"
-          },
-        ]
-      },
-    ];
+      const WhiteVoiceData = [
+        {
+          category: "",
+          lines: [
+            {
+              jp: "ハッピホワイトデーですわ！",
+              zh: "白色情人節快樂。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage1.mp3",
+            },
+            {
+              jp: "昔レティにバレンタインのお返しで紅茶を渡したら、同じものを渡されたのよ。その商品、三十種類もフレーバーがあるのに被るなんて、私達似た者同士ねって笑い合ってたわ。",
+              zh: "以前作為情人節的回禮送了紅茶給蕾蒂，結果她竟然也送了一模一樣的東西給我喔。那個商品明明有多達30種口味，居然還會選到一樣的。當時我們還相視而笑，說我們真是性情相近的夥伴呢。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage2.mp3",
+            },
+          ],
+        },
+      ];
 
-    const HappyNewYearVoiceData = [
-      {
-        category: "",
-        lines: [
-          {
-            jp: "あけましておめでとうございます。",
-            zh: "新年快樂。",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage1.mp3"
-          },
-          {
-            jp: "書き初めで絵を描いてみようと思うの。ふふっ。今から大作の予感がするわ。",
-            zh: "我想在新年試筆的時候試著畫一幅畫。呵呵，我現在就已經預感到這會是一幅大作了呢。",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage2.mp3"
-          },
-        ]
-      },
-    ];
+      const HalloweenVoiceData = [
+        {
+          category: "",
+          lines: [
+            {
+              jp: "ハッピーハロウィンですわ。",
+              zh: "萬聖節快樂。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage1.mp3",
+            },
+            {
+              jp: "人を驚かせたり、お菓子をもらってはしゃいだり。子供って本当に騒がしいわね。ま、そこが子供のいいところなんだけど。",
+              zh: "到處嚇唬人啦、拿到糖果開心地喧鬧啦。小孩子還真的是很吵鬧呢。不過，這也是小孩子討人喜歡的地方啦。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage2.mp3",
+            },
+          ],
+        },
+      ];
 
-    const ValentineVoiceData = [
-      {
-        category: "",
-        lines: [
-          {
-            jp: "ハッピーバレンタイン、ですわ。",
-            zh: "情人節快樂。",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_valentine_mypage1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_valentine_mypage1.mp3"
-          },
-          {
-            jp: "昔はレティと毎年、友チョコを渡しあっていたわね。懐かしいわ。",
-            zh: "以前每年都會和蕾蒂互相交換友情巧克力呢。真懷念啊。",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_valentine_mypage2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_valentine_mypage2.mp3"
-          },
-        ]
-      },
-    ];
+      const ChristmasVoiceData = [
+        {
+          category: "",
+          lines: [
+            {
+              jp: "メリークリスマスですわ。",
+              zh: "聖誕快樂。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage1.mp3",
+            },
+            {
+              jp: "この時期になると、子供たちと一緒に雪だるまを作ったり、雪合戦をして遊びましたわ。よろしければ、団長さんもいかがですか？",
+              zh: "一到這個時節，我就會和孩子們一起堆雪人、打雪仗呢。如果不介意的話，團長您要不要也一起來呢？",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage2.mp3",
+            },
+          ],
+        },
+      ];
 
-    const WhiteVoiceData = [
-      {
-        category: "",
-        lines: [
-          {
-            jp: "ハッピホワイトデーですわ！",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage1.mp3"
-          },
-          {
-            jp: "昔レティにバレンタインのお返しで紅茶を渡したら、同じものを渡されたのよ。その商品、三十種類もフレーバーがあるのに被るなんて、私達似た者同士ねって笑い合ってたわ",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage2.mp3"
-          },
-        ]
-      },
-    ];
+      let currentAudio = null;
+      let currentButton = null;
 
-    const HalloweenVoiceData = [
-      {
-        category: "",
-        lines: [
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage1.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage2.mp3"
-          },
-        ]
-      },
-    ];
-
-    const ChristmasVoiceData = [
-      {
-        category: "",
-        lines: [
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage1.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage1.mp3"
-          },
-          {
-            jp: "",
-            zh: "",
-            Audio: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage2.mp3",
-            originalUrl: "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage2.mp3"
-          },
-        ]
-      },
-    ];
-
-    let currentAudio = null;
-
-    // 播放功能
-    window.playAudio = function(url) {
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-      }
-      currentAudio = new Audio(url);
-      currentAudio.play().catch(e => console.error("播放失敗，請檢查本地音檔路徑:", e));
-    };
-
-    const tableConfigs = [
-      {
-        mainTitle: "General",
-        title: "Menu Voice Lines", 
-        data: menuVoiceData 
-      },
-      {
-        // subTitle: "Base Battle Pose",
-        title: "Battle Voice Lines", 
-        data: battleVoiceData 
-      },
-      {
-        // subTitle: "各種嬌喘聲 (?)",
-        title: "ASMR Voice Lines", 
-        data: aegigoeVoiceData
-      },
-      { 
-        mainTitle: "Character Banter", 
-        // subTitle: "Katzelia",
-        title: "Katzelia Voice Lines", 
-        data: KatzeliabattleVoiceData 
-      },
-      {
-        // subTitle: "From Katzelia <3",
-        title: "From Katzelia Voice Lines", 
-        data: fromKatzeliabattleVoiceData
-      },
-      {
-        mainTitle: "Holidays",
-        // subTitle: "Happy Birthday",
-        hasCategory: false,
-        title: "Birthday Voice Lines", 
-        data: HappyBirthdayVoiceData
-      },
-      {
-        // subTitle: "Happy New Year",
-        hasCategory: false,
-        title: "New Year Voice Lines", 
-        data: HappyNewYearVoiceData
-      },
-      {
-        // subTitle: "Valentine's Day",
-        hasCategory: false,
-        title: "Valentine's Day Voice Lines", 
-        data: ValentineVoiceData
-      },
-      {
-        // subTitle: "White Day",
-        hasCategory: false,
-        title: "White Day Voice Lines", 
-        data: WhiteVoiceData
-      },
-      {
-        // subTitle: "Halloween",
-        hasCategory: false,
-        title: "Halloween Voice Lines", 
-        data: HalloweenVoiceData
-      },
-      {
-        // subTitle: "Christmas",
-        hasCategory: false,
-        title: "Christmas Voice Lines", 
-        data: ChristmasVoiceData
-      },
-    ];
-
-    // 渲染函數
-    function renderAllTables() {
-      const container = document.getElementById('all-tables-container');
-      let htmlString = "";
-
-      tableConfigs.forEach(config => {
-        
-        // --- 1. 外部大標題區塊 (共用) ---
-        if (config.mainTitle || config.subTitle) {
-          htmlString += `<div class="max-w-6xl md:px-0 md:ml-10 mb-2 px-4">`;
-          if (config.mainTitle) {
-            htmlString += `<h2 class="text-2xl font-serif text-slate-800 border-b border-slate-300 pb-1 mb-4">${config.mainTitle}</h2>`;
-          }
-          if (config.subTitle) {
-            htmlString += `<h3 class="text-xl font-bold text-blue-700">${config.subTitle}</h3>`;
-          }
-          htmlString += `</div>`;
+      window.playAudio = function (url, btn) {
+        // 點擊正在播放的同一顆按鈕，就暫停
+        if (currentAudio && !currentAudio.paused && currentButton === btn) {
+          currentAudio.pause();
+          return;
         }
 
-        const tableSpacingClass = (config.mainTitle || config.subTitle) ? "!-mt-0" : "";
-        const hasCategory = config.hasCategory !== false;
-        
-        // 準備分開收集兩種 Layout 的字串
-        let desktopHtml = "";
-        let mobileHtml = "";
+        // 如果有上一顆按鈕，先把它的樣式移除，恢復原狀
+        if (currentButton) {
+          currentButton.classList.remove("!bg-fuchsia-300/70");
+        }
 
-        // ==========================================
-        //         【 桌面版佈局 (Desktop) 】
-        // ==========================================
-        // 並確保其他固定欄位的寬度不動。
-        let colGroupHtml = hasCategory 
-          ? `<col class="w-24"><col class="w-auto"><col class="w-auto"><col class="w-20"><col class="w-40">`
-          : `<col class="w-auto"><col class="w-auto"><col class="w-20"><col class="w-40">`;
+        // 停止舊音檔，並「清空舊音檔的事件」，防止它干擾新的按鈕
+        if (currentAudio) {
+          currentAudio.onpause = null;
+          currentAudio.onended = null;
+          currentAudio.pause();
+        }
 
-        let theadHtml = hasCategory 
-          ? `
+        // 設定並播放新音檔
+        currentAudio = new Audio(url);
+        currentButton = btn;
+        currentButton.classList.add("!bg-fuchsia-300/70");
+
+        // 按鈕恢復
+        const resetBtn = () => {
+          if (currentButton === btn) {
+            currentButton.classList.remove("!bg-fuchsia-300/70");
+            currentButton = null;
+          }
+        };
+
+        // 綁定結束與暫停事件
+        currentAudio.onended = resetBtn;
+        currentAudio.onpause = resetBtn;
+
+        currentAudio.play().catch((e) => console.error("播放失敗", e));
+      };
+      // };
+
+      const tableConfigs = [
+        {
+          mainTitle: "General",
+          title: "Menu Voice Lines",
+          data: menuVoiceData,
+        },
+        {
+          // subTitle: "Base Battle Pose",
+          title: "Battle Voice Lines",
+          data: battleVoiceData,
+        },
+        {
+          // subTitle: "各種嬌喘聲 (?)",
+          title: "ASMR Voice Lines",
+          data: aegigoeVoiceData,
+        },
+        {
+          mainTitle: "Character Banter",
+          // subTitle: "Katzelia",
+          title: "Katzelia Voice Lines",
+          sectionId: "katzelia-section-1",
+          data: KatzeliabattleVoiceData,
+        },
+        {
+          // subTitle: "From Katzelia <3",
+          title: "From Katzelia Voice Lines",
+          sectionId: "katzelia-section-2",
+          data: fromKatzeliabattleVoiceData,
+        },
+        {
+          mainTitle: "Holidays",
+          // subTitle: "Happy Birthday",
+          hasCategory: false,
+          title: "Birthday Voice Lines",
+          data: HappyBirthdayVoiceData,
+        },
+        {
+          // subTitle: "Happy New Year",
+          hasCategory: false,
+          title: "New Year Voice Lines",
+          data: HappyNewYearVoiceData,
+        },
+        {
+          // subTitle: "Valentine's Day",
+          hasCategory: false,
+          title: "Valentine's Day Voice Lines",
+          data: ValentineVoiceData,
+        },
+        {
+          // subTitle: "White Day",
+          hasCategory: false,
+          title: "White Day Voice Lines",
+          data: WhiteVoiceData,
+        },
+        {
+          // subTitle: "Halloween",
+          hasCategory: false,
+          title: "Halloween Voice Lines",
+          data: HalloweenVoiceData,
+        },
+        {
+          // subTitle: "Christmas",
+          hasCategory: false,
+          title: "Christmas Voice Lines",
+          data: ChristmasVoiceData,
+        },
+      ];
+
+      // 渲染函數
+      function renderAllTables() {
+        const container = document.getElementById("all-tables-container");
+        let htmlString = "";
+
+        tableConfigs.forEach((config) => {
+          // --- 1. 外部大標題區塊 (共用) ---
+          if (config.mainTitle || config.subTitle) {
+            htmlString += `<div class="max-w-6xl md:px-0 md:ml-10 mb-2 px-4">`;
+            if (config.mainTitle) {
+              htmlString += `<h2 class="text-2xl font-serif text-slate-800 border-b border-slate-300 pb-1 mb-4">${config.mainTitle}</h2>`;
+            }
+            if (config.subTitle) {
+              htmlString += `<h3 class="text-xl font-bold text-blue-700">${config.subTitle}</h3>`;
+            }
+            htmlString += `</div>`;
+          }
+
+          const tableSpacingClass =
+            config.mainTitle || config.subTitle ? "!-mt-0" : "";
+          const hasCategory = config.hasCategory !== false;
+
+          // 準備分開收集兩種 Layout 的字串
+          let desktopHtml = "";
+          let mobileHtml = "";
+
+          // ==========================================
+          //         【 桌面版佈局 (Desktop) 】
+          // ==========================================
+          // 並確保其他固定欄位的寬度不動。
+          let colGroupHtml = hasCategory
+            ? `<col class="w-24"><col class="w-auto"><col class="w-auto"><col class="w-20"><col class="w-40">`
+            : `<col class="w-auto"><col class="w-auto"><col class="w-20"><col class="w-40">`;
+
+          let theadHtml = hasCategory
+            ? `
             <th class="border-b border-r border-slate-300 p-3">Category</th>
             <th class="border-b border-r border-slate-300 p-3">Japanese</th>
             <th class="border-b border-r border-slate-300 p-3">中文翻譯</th>
             <th class="border-b border-r border-slate-300 p-3">Play</th>
             <th class="border-b border-slate-300 p-3">來源檔案</th>
-          ` 
-          : `
+          `
+            : `
             <th class="border-b border-r border-slate-300 p-3">Japanese</th>
             <th class="border-b border-r border-slate-300 p-3">中文翻譯</th>
             <th class="border-b border-r border-slate-300 p-3">Play</th>
             <th class="border-b border-slate-300 p-3">來源檔案</th>
           `;
 
-        // 桌面版外框
-        desktopHtml += `
-          <div class="hidden md:block max-w-6xl ml-10 mb-8 bg-white border border-slate-300 shadow-sm rounded-md overflow-hidden ${tableSpacingClass}">
+          // 桌面版外框
+          desktopHtml += `
+          <div id="${config.sectionId || ""}" class="hidden md:block max-w-6xl ml-10 mb-8 bg-white border border-slate-300 shadow-sm rounded-md overflow-hidden ${tableSpacingClass}">
             <div class="bg-slate-200 border-b border-slate-300 py-3 text-base font-bold text-center text-blue-700">
               ${config.title} 
             </div>
@@ -887,11 +1157,11 @@
               <tbody>
         `;
 
-        // ==========================================
-        //         【 手機版佈局 (Mobile) 】
-        // ==========================================
-        // 手機版外框 (加上 md:hidden，並改用 flex 垂直排列卡片)
-        mobileHtml += `
+          // ==========================================
+          //         【 手機版佈局 (Mobile) 】
+          // ==========================================
+          // 手機版外框 (加上 md:hidden，並改用 flex 垂直排列卡片)
+          mobileHtml += `
           <div class="md:hidden w-full max-w-full px-4 mb-8">
             <div class="bg-white border border-slate-300 rounded-md overflow-hidden shadow-sm">
               <div class="bg-slate-200 border-b border-slate-300 py-2 text-base font-bold text-center text-blue-700">
@@ -900,25 +1170,24 @@
             <div class="flex flex-col">
         `;
 
-        // ==========================================
-        //        【 跑迴圈，同時生成兩套內容 】
-        // ==========================================
-        config.data.forEach(group => {
-          group.lines.forEach((line, index) => {
-            const rawFileName = line.originalUrl.split('/').pop();
-            const fileName = rawFileName.replace('_', '_<br>');
-            
-            
-            // --- 寫入桌面版 <tr> (完全不用煩惱隱藏類別，乾淨的表格) ---
-            desktopHtml += `<tr class="hover:bg-slate-50 transition-colors">`;
-            if (hasCategory && index === 0) {
-              desktopHtml += `<td rowspan="${group.lines.length}" class="bg-blue-50 font-semibold p-2 border-b border-r border-slate-300 align-middle text-center text-slate-700">${group.category}</td>`;
-            }
-            desktopHtml += `
+          // ==========================================
+          //        【 跑迴圈，同時生成兩套內容 】
+          // ==========================================
+          config.data.forEach((group) => {
+            group.lines.forEach((line, index) => {
+              const rawFileName = line.originalUrl.split("/").pop();
+              const fileName = rawFileName.replace("_", "_<br>");
+
+              // --- 寫入桌面版 <tr> (完全不用煩惱隱藏類別，乾淨的表格) ---
+              desktopHtml += `<tr class="hover:bg-slate-50 transition-colors">`;
+              if (hasCategory && index === 0) {
+                desktopHtml += `<td rowspan="${group.lines.length}" class="bg-blue-50 font-semibold p-2 border-b border-r border-slate-300 align-middle text-center text-slate-700">${group.category}</td>`;
+              }
+              desktopHtml += `
                 <td class="p-3 border-b border-r border-slate-300 align-middle leading-relaxed whitespace-pre-wrap">${line.jp}</td>
                 <td class="p-3 border-b border-r border-slate-300 align-middle leading-relaxed text-slate-600 whitespace-pre-wrap">${line.zh}</td>
                 <td class="p-2 border-b border-r border-slate-300 align-middle text-center">
-                  <button onclick="playAudio('${line.Audio}')" class="play-btn text-white rounded-full w-12 h-8 flex items-center justify-center mx-auto transition">🔊</button>
+                  <button onclick="playAudio('${line.Audio}', this)" class="!bg-none !bg-sky-300/40 play-btn text-white rounded-full w-12 h-8 flex items-center justify-center mx-auto transition">🔊</button>
                 </td>
                 <td class="p-2 border-b border-slate-300 align-middle text-center text-xs">
                   <a href="${line.originalUrl}" target="_blank" class="text-blue-500 hover:text-blue-700 hover:underline font-mono">${fileName}</a>
@@ -926,38 +1195,145 @@
               </tr>
             `;
 
-            // --- 寫入手機版 Card (完全脫離 table 限制，自由排版) ---
-            let categoryBadge = (hasCategory && group.category) 
-              ? `<span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">${group.category}</span>` 
-              : '';
+              // --- 寫入手機版 Card (完全脫離 table 限制，自由排版) ---
+              let categoryBadge =
+                hasCategory && group.category
+                  ? `<span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">${group.category}</span>`
+                  : "";
 
-            mobileHtml += `
-              <div class="bg-white border-b border-slate-300 p-4 relative last:border-b-0">
-                ${categoryBadge}
-                <div class="text-slate-900 font-medium mb-1 whitespace-pre-wrap">${line.jp}</div>
-                <div class="text-slate-500 text-sm mb-4 whitespace-pre-wrap">${line.zh}</div>
+              mobileHtml += `
+              <!-- 1. 在外層加入 flex justify-between items-end，讓內容左右對齊，且按鈕靠下 -->
+              <div class="bg-white border-b border-slate-300 p-3 flex justify-between items-end gap-2 last:border-b-0">
                 
-                <!-- 播放按鈕固定在卡片右下角 -->
-                <button onclick="playAudio('${line.Audio}')" class="absolute bottom-4 right-4 play-btn text-white rounded-full w-12 h-8 flex items-center justify-center transition">🔊</button>
+                <!-- 2. 左側文字區塊：使用 flex-1 填滿剩餘空間，min-w-0 防止超出版面 -->
+                <div class="flex-1 min-w-0">
+                  ${categoryBadge}
+                  <div class="text-slate-900 font-medium mb-1 whitespace-pre-wrap">${line.jp}</div>
+                  <div class="text-slate-500 text-sm whitespace-pre-wrap">${line.zh}</div>
+                </div>
+                
+                <!-- 3. 右側按鈕區塊：移除 absolute，加上 shrink-0 防止按鈕被文字擠壓變形 -->
+                <button onclick="playAudio('${line.Audio}', this)" class="!bg-none !bg-sky-300/40 shrink-0 play-btn text-white rounded-full w-12 h-8 flex items-center justify-center transition">🔊</button>
               </div>
             `;
+            });
           });
+
+          // 收尾標籤
+          desktopHtml += `</tbody></table></div>`;
+          mobileHtml += `</div></div></div>`;
+
+          // 將兩種佈局加進總輸出
+          htmlString += desktopHtml + mobileHtml;
         });
 
-        // 收尾標籤
-        desktopHtml += `</tbody></table></div>`;
-        mobileHtml += `</div></div></div>`;
+        container.innerHTML = htmlString;
+      }
 
-        // 將兩種佈局加進總輸出
-        htmlString += desktopHtml + mobileHtml;
+      // 執行生成
+      renderAllTables();
+
+      // ==========================================
+      //        【 桌面版 Toast 提示功能 】
+      // ==========================================
+      function showMobileReadyToast() {
+        // 1. 動態建立 Toast 元素
+        const toast = document.createElement("div");
+
+        // 2. 設定 Tailwind 樣式
+        // hidden md:flex: 確保只在桌面版(md 以上寬度)顯示
+        // fixed bottom-6 right-6: 固定在視窗右下角
+        // transition-all duration-500 transform translate-y-10 opacity-0: 處理滑入動畫的初始狀態
+        toast.className =
+          "hidden md:flex fixed bottom-6 right-6 bg-blue-500 text-white px-6 py-4 rounded-lg shadow-xl items-center gap-4 transition-all duration-500 transform translate-y-10 opacity-0 z-50 border border-blue-400";
+
+        // 3. 填入 HTML 內容 (文字 + 關閉按鈕)
+        toast.innerHTML = `
+        <div class="flex items-center gap-3">
+        <span class="font-medium tracking-wide">手機版的 layout 做好了</span>
+        <span class="text-xl"><img src="https://cdn.discordapp.com/emojis/1491007642167152640.webp?size=128"
+      type="image/png"" class="w-6 h-6 inline-block" alt="emoji"></span>
+        </div>
+        <button class="text-white/70 hover:text-white transition-colors ml-2 p-1" 
+                onclick="this.parentElement.classList.add('translate-y-10', 'opacity-0'); setTimeout(() => this.parentElement.remove(), 500);">
+          ✕
+        </button>
+      `;
+
+        // 4. 將 Toast 塞進網頁中
+        document.body.appendChild(toast);
+
+        // 5. 延遲 300 毫秒後觸發動畫 (往上滑入並浮現)
+        setTimeout(() => {
+          toast.classList.remove("translate-y-10", "opacity-0");
+        }, 300);
+
+        // 6. 設定 5 秒後自動隱藏並移除
+        setTimeout(() => {
+          if (document.body.contains(toast)) {
+            toast.classList.add("translate-y-10", "opacity-0");
+            setTimeout(() => toast.remove(), 500); // 等待動畫播完後把元素刪掉
+          }
+        }, 3000);
+      }
+
+      // ==========================================
+      //   滾動切換圖片功能
+      // ==========================================
+      function setupScrollObserver() {
+        const mywifeImg = document.getElementById("my_cute_wife");
+        if (!mywifeImg) return;
+
+        const defaultImg =
+          "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_91_1.png";
+        const katzeliaImg =
+          "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_02.png";
+
+        // ✨ 新增一本「點名簿」，用來記住現在有幾個區塊在中心判定區
+        const activeSections = new Set();
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // 進入判定區：把這個區塊的 ID 登記到點名簿
+                activeSections.add(entry.target.id);
+              } else {
+                // 離開判定區：從點名簿上劃掉
+                activeSections.delete(entry.target.id);
+              }
+            });
+
+            // ✨ 迴圈結束後，統一檢查點名簿的狀態
+            if (activeSections.size > 0) {
+              // 只要點名簿上大於 0 人（有任何 Katzelia 區塊在畫面上），就保持圖片
+              mywifeImg.src = katzeliaImg;
+            } else {
+              // 只有當點名簿完全空了，才換回預設圖
+              mywifeImg.src = defaultImg;
+            }
+          },
+          {
+            // ✨ 我把上下各放寬了 10%，變成只內縮 30%
+            // 這樣可以涵蓋住兩個區塊中間的空白縫隙 (mb-10)，避免滑過縫隙時閃爍
+            rootMargin: "-30% 0px -30% 0px",
+            threshold: 0,
+          },
+        );
+
+        const katzeliaIds = ["katzelia-section-1", "katzelia-section-2"];
+        katzeliaIds.forEach((id) => {
+          const section = document.getElementById(id);
+          if (section) observer.observe(section);
+        });
+      }
+
+      // 監聽網頁載入完成事件，載入後自動執行
+      window.addEventListener("DOMContentLoaded", () => {
+        renderAllTables();
+        showMobileReadyToast();
+        setupScrollObserver(); // ✨ 表格畫完之後，啟動監聽器
       });
-
-      container.innerHTML = htmlString;
-    }
-
-    // 執行生成
-    renderAllTables();
-
-  </script>
-</body>
+    </script>
+  </body>
 </html>
