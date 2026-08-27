@@ -75,6 +75,34 @@
     </div>
 
     <!-- <div id="all-tables-container" class="space-y-12 mb-12"></div> -->
+    <!-- 頁籤 (Tabs) 切換按鈕 -->
+    <div
+      class="max-w-6xl mx-4 md:mx-0 md:ml-10 mb-4 flex gap-2 border-b-2 border-slate-300"
+    >
+      <button
+        id="tab-main"
+        onclick="switchTab('main')"
+        class="px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-blue-500 text-white"
+      >
+        General
+      </button>
+      <button
+        id="tab-asmr"
+        onclick="switchTab('asmr')"
+        class="px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-cyan-500 text-slate-500 hover:bg-slate-300"
+      >
+        ASMR
+      </button>
+      <button
+        id="tab-holiday"
+        onclick="switchTab('holiday')"
+        class="px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-slate-200 text-slate-500 hover:bg-slate-300"
+      >
+        Holiday
+      </button>
+    </div>
+
+    <!-- 原本的容器保留 -->
     <div id="all-tables-container"></div>
     <script>
       const menuVoiceData = [
@@ -917,53 +945,106 @@
           ],
         },
         {
-          category: "",
-          lines: [],
+          category: "MC Defeats Enemy",
+          lines: [
+            {
+              jp: "流石ですわ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_to_player1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_to_player1.mp3",
+            },
+          ],
         },
         {
-          category: "",
-          lines: [],
+          category: "MC C.A. Ready",
+          lines: [
+            {
+              jp: "団長さん！今ですわ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_to_player2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_to_player2.mp3",
+            },
+          ],
+        },
+        {
+          category: "MC Red HP",
+          lines: [
+            {
+              jp: "ハーゼがお守り致しますわ！",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_to_player3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_to_player3.mp3",
+            },
+          ],
+        },
+        {
+          category: "MC Knocked Out",
+          lines: [
+            {
+              jp: "あぁ…そんな…",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_to_player4.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_to_player4.mp3",
+            },
+          ],
         },
       ];
       // 從 3040168000_v_001.mp3 到 3040168000_v_372.mp3
+
+const generatedAsmrLines = [];
+      const skipList = [95, 104, 278, 322, 337, 338, 339, 340];
+
+      // 建立一個對照表，直接用檔案的真實編號 (1~372) 當作 Key
+      const customTexts = {
+        1: { 
+          jp: "text", 
+          zh: "text2" 
+        },
+        2: {
+          jp: "",
+          zh: ""
+        },
+        3: {
+          jp: "",
+          zh: ""
+        }
+      };
+
+      for (let i = 1; i <= 372; i++) {
+        // 如果在略過清單內，直接跳過
+        if (skipList.includes(i)) {
+          continue; 
+        }
+
+        const numStr = String(i).padStart(3, "0");
+        const url = `https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_${numStr}.mp3`;
+
+        // 檢查這個編號有沒有在剛剛的對照表裡？有就套用，沒有就給空字串
+        const currentJp = customTexts[i] ? customTexts[i].jp : "";
+        const currentZh = customTexts[i] ? customTexts[i].zh : "";
+
+        generatedAsmrLines.push({
+          jp: currentJp,
+          zh: currentZh,
+          Audio: url,
+          originalUrl: url,
+        });
+      }
+
+      // ⚠️ 注意：不要再保留原本在下面的 generatedAsmrLines[371].jp = "..." 這些程式碼，要把他們刪乾淨！
+
       const aegigoeVoiceData = [
         {
           category: "ASMR",
-          lines: [
-            {
-              jp: '這邊 Dola 會愛的<img src="https://cdn.discordapp.com/emojis/862686706188812299.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">',
-              zh: '這裡太多了有 372 個<img src="https://cdn.discordapp.com/emojis/1490898237866115214.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">\n之後應該會做分頁連結',
-              Audio:
-                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_369.mp3",
-              originalUrl:
-                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_369.mp3",
-            },
-            {
-              jp: "",
-              zh: "",
-              Audio:
-                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_370.mp3",
-              originalUrl:
-                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_370.mp3",
-            },
-            {
-              jp: "",
-              zh: "",
-              Audio:
-                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_371.mp3",
-              originalUrl:
-                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_371.mp3",
-            },
-            {
-              jp: '老婆真香 <img src="https://cdn.discordapp.com/emojis/604991452564684811.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">',
-              zh: `<span class=' text-slate-400  relative top-[2px]'>Dola 乾掉惹</span> <img src="https://cdn.discordapp.com/emojis/994187094459158598.webp?size=128&animated=true" class="w-6 h-6 inline-block align-middle" alt="emoji">`,
-              // zh: '<img src="https://cdn.discordapp.com/emojis/994187094459158598.webp?size=128&animated=true" class="w-6 h-6 inline-block" alt="emoji">',
-              Audio:
-                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_372.mp3",
-              originalUrl:
-                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_372.mp3",
-            },
-          ],
+          lines: generatedAsmrLines,
         },
       ];
 
@@ -1370,21 +1451,25 @@
 
       const tableConfigs = [
         {
+          tabCategory: "main",
           mainTitle: "General",
           title: "Menu Voice Lines",
           data: menuVoiceData,
         },
         {
-          // subTitle: "Base Battle Pose",
+          tabCategory: "main",
           title: "Battle Voice Lines",
           data: battleVoiceData,
         },
         {
-          // subTitle: "各種嬌喘聲 (?)",
+          tabCategory: "asmr",
+          mainTitle: "ASMR",
+          hasCategory: false,
           title: "ASMR Voice Lines",
           data: aegigoeVoiceData,
         },
         {
+          tabCategory: "main",
           mainTitle: "Character Banter",
           // subTitle: "Katzelia",
           title: "Katzelia Voice Lines",
@@ -1392,12 +1477,13 @@
           data: KatzeliabattleVoiceData,
         },
         {
-          // subTitle: "From Katzelia <3",
+          tabCategory: "main",
           title: "From Katzelia Voice Lines",
           sectionId: "katzelia-section-2",
           data: fromKatzeliabattleVoiceData,
         },
         {
+          tabCategory: "holiday",
           mainTitle: "Holidays",
           // subTitle: "Happy Birthday",
           hasCategory: false,
@@ -1405,43 +1491,84 @@
           data: HappyBirthdayVoiceData,
         },
         {
-          // subTitle: "Happy New Year",
+          tabCategory: "holiday",
           hasCategory: false,
           title: "New Year Voice Lines",
           data: HappyNewYearVoiceData,
         },
         {
-          // subTitle: "Valentine's Day",
+          tabCategory: "holiday",
           hasCategory: false,
           title: "Valentine's Day Voice Lines",
           data: ValentineVoiceData,
         },
         {
-          // subTitle: "White Day",
+          tabCategory: "holiday",
           hasCategory: false,
           title: "White Day Voice Lines",
           data: WhiteVoiceData,
         },
         {
-          // subTitle: "Halloween",
+          tabCategory: "holiday",
           hasCategory: false,
           title: "Halloween Voice Lines",
           data: HalloweenVoiceData,
         },
         {
-          // subTitle: "Christmas",
+          tabCategory: "holiday",
           hasCategory: false,
           title: "Christmas Voice Lines",
           data: ChristmasVoiceData,
         },
       ];
 
+      // 記錄當前頁籤
+      let currentTab = "main";
+
+      // 切換頁籤的控制函數
+      // 切換頁籤的控制函數
+      function switchTab(tabId) {
+        currentTab = tabId;
+
+        const tabMain = document.getElementById("tab-main");
+        const tabAsmr = document.getElementById("tab-asmr");
+        const tabHoliday = document.getElementById("tab-holiday"); // 記得抓取新按鈕
+
+        // 先定義好「未選取」的通用樣式
+        const inactiveClass =
+          "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-slate-200 text-slate-500 hover:bg-slate-300";
+
+        // 每次切換時，先全部重置為未選取
+        tabMain.className = inactiveClass;
+        tabAsmr.className = inactiveClass;
+        tabHoliday.className = inactiveClass;
+
+        // 根據點擊的 tabId，幫特定的按鈕套用「已選取」的顏色
+        if (tabId === "main") {
+          tabMain.className =
+            "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-blue-500 text-white";
+        } else if (tabId === "asmr") {
+          tabAsmr.className =
+            "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-cyan-500 text-white";
+        } else if (tabId === "holiday") {
+          tabHoliday.className =
+            "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-violet-500  text-white"; // 節慶給個橘色
+        }
+
+        // 重新渲染表格
+        renderAllTables();
+      }
+
       // 渲染函數
       function renderAllTables() {
         const container = document.getElementById("all-tables-container");
         let htmlString = "";
 
-        tableConfigs.forEach((config) => {
+        const filteredConfigs = tableConfigs.filter(
+          (config) => config.tabCategory === currentTab,
+        );
+
+        filteredConfigs.forEach((config) => {
           // --- 1. 外部大標題區塊 (共用) ---
           if (config.mainTitle || config.subTitle) {
             htmlString += `<div class="max-w-6xl md:px-0 md:ml-10 mb-2 px-4">`;
@@ -1571,10 +1698,12 @@
         });
 
         container.innerHTML = htmlString;
+
+        setupScrollObserver();
       }
 
       // 執行生成
-      renderAllTables();
+      // renderAllTables();
 
       // ==========================================
       //        【 桌面版 Toast 提示功能 】
@@ -1673,9 +1802,9 @@
 
       // 監聽網頁載入完成事件，載入後自動執行
       window.addEventListener("DOMContentLoaded", () => {
-        renderAllTables();
+        switchTab("main");
         showMobileReadyToast();
-        setupScrollObserver(); // ✨ 表格畫完之後，啟動監聽器
+        // setupScrollObserver(); // ✨ 表格畫完之後，啟動監聽器
       });
     </script>
   </body>
