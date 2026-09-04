@@ -100,6 +100,13 @@
       >
         Holiday
       </button>
+      <button
+        id="tab-summer"
+        onclick="switchTab('summer')"
+        class="px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-slate-200 text-slate-500 hover:bg-slate-300"
+      >
+        Summer
+      </button>
     </div>
 
     <!-- 原本的容器保留 -->
@@ -1411,8 +1418,7 @@
       // 從 3040168000_v_001.mp3 到 3040168000_v_372.mp3
 
       const generatedAsmrLines = [];
-      const skipList = [95, 104, 278, 322, 337, 338, 339, 340];
-
+      const suffixAList = [95, 104, 278, 322, 337, 338, 339, 340];
       // 建立一個對照表，直接用檔案的真實編號 (1~372) 當作 Key
       const customTexts = {
         1: {
@@ -1427,16 +1433,20 @@
           jp: "",
           zh: "",
         },
+        95: {
+          jp: "",
+          zh: "",
+        },
       };
 
       for (let i = 1; i <= 372; i++) {
-        // 如果在略過清單內，直接跳過
-        if (skipList.includes(i)) {
-          continue;
-        }
-
         const numStr = String(i).padStart(3, "0");
-        const url = `https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_${numStr}.mp3`;
+        
+        // 檢查這個編號是否在清單內，如果是就給 "_a"，否則就留空 ""
+        const suffix = suffixAList.includes(i) ? "_a" : "";
+        
+        // 把 suffix 加進網址的變數裡面
+        const url = `https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_${numStr}${suffix}.mp3`;
 
         // 檢查這個編號有沒有在剛剛的對照表裡？有就套用，沒有就給空字串
         const currentJp = customTexts[i] ? customTexts[i].jp : "";
@@ -1449,8 +1459,6 @@
           originalUrl: url,
         });
       }
-
-      // ⚠️ 注意：不要再保留原本在下面的 generatedAsmrLines[371].jp = "..." 這些程式碼，要把他們刪乾淨！
 
       const aegigoeVoiceData = [
         {
@@ -1686,8 +1694,8 @@
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage1.mp3",
             },
             {
-              jp: "大切な人に祝ってもらえることは、決して当たり前のことではありませんわ。日々感謝しなければいけませんわよ。団長さん。",
-              zh: "能得到重要之人的祝福，這可絕對不是理所當然的事情喔。必須每天心懷感激才行呢，團長。",
+              jp: "大切な人に祝ってもらえることは、決して当たり前のことではありませんわ。\n日々感謝しなければいけませんわよ。団長さん。",
+              zh: "能得到重要之人的祝福，這可絕對不是理所當然的事情喔。\n必須每天心懷感激才行呢，團長。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_birthday_mypage2.mp3",
               originalUrl:
@@ -1710,8 +1718,8 @@
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage1.mp3",
             },
             {
-              jp: "書き初めで絵を描いてみようと思うの。ふふっ。今から大作の予感がするわ。",
-              zh: "我想在新年試筆的時候試著畫一幅畫。呵呵，我現在就已經預感到這會是一幅大作了呢。",
+              jp: "書き初めで絵を描いてみようと思うの。\nふふっ。今から大作の予感がするわ。",
+              zh: "我想在新年試筆的時候試著畫一幅畫。\n呵呵，我現在就已經預感到這會是一幅大作了呢。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_newyear_mypage2.mp3",
               originalUrl:
@@ -1758,8 +1766,8 @@
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage1.mp3",
             },
             {
-              jp: "昔レティにバレンタインのお返しで紅茶を渡したら、同じものを渡されたのよ。その商品、三十種類もフレーバーがあるのに被るなんて、私達似た者同士ねって笑い合ってたわ。",
-              zh: "以前作為情人節的回禮送了紅茶給蕾蒂，結果她竟然也送了一模一樣的東西給我喔。那個商品明明有多達30種口味，居然還會選到一樣的。當時我們還相視而笑，說我們真是性情相近的夥伴呢。",
+              jp: "昔レティにバレンタインのお返しで紅茶を渡したら、同じものを渡されたのよ。\nその商品、三十種類もフレーバーがあるのに被るなんて、私達似た者同士ねって笑い合ってたわ。",
+              zh: "以前作為情人節的回禮送了紅茶給蕾蒂，結果她竟然也送了一模一樣的東西給我喔。\n那個商品明明有多達30種口味，居然還會選到一樣的。當時我們還相視而笑，說我們真是性情相近的夥伴呢。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_white_mypage2.mp3",
               originalUrl:
@@ -1782,8 +1790,8 @@
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage1.mp3",
             },
             {
-              jp: "人を驚かせたり、お菓子をもらってはしゃいだり。子供って本当に騒がしいわね。ま、そこが子供のいいところなんだけど。",
-              zh: "到處嚇唬人啦、拿到糖果開心地喧鬧啦。小孩子還真的是很吵鬧呢。不過，這也是小孩子討人喜歡的地方啦。",
+              jp: "人を驚かせたり、お菓子をもらってはしゃいだり。子供って本当に騒がしいわね。\nま、そこが子供のいいところなんだけど。",
+              zh: "到處嚇唬人啦、拿到糖果開心地喧鬧啦。小孩子還真的是很吵鬧呢。\n不過，這也是小孩子討人喜歡的地方啦。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_halloween_mypage2.mp3",
               originalUrl:
@@ -1806,12 +1814,655 @@
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage1.mp3",
             },
             {
-              jp: "この時期になると、子供たちと一緒に雪だるまを作ったり、雪合戦をして遊びましたわ。よろしければ、団長さんもいかがですか？",
-              zh: "一到這個時節，我就會和孩子們一起堆雪人、打雪仗呢。如果不介意的話，團長您要不要也一起來呢？",
+              jp: "この時期になると、子供たちと一緒に雪だるまを作ったり、雪合戦をして遊びましたわ。\nよろしければ、団長さんもいかがですか？",
+              zh: "一到這個時節，我就會和孩子們一起堆雪人、打雪仗呢。\n如果不介意的話，團長您要不要也一起來呢？",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage2.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_christmas_mypage2.mp3",
+            },
+          ],
+        },
+      ];
+      const SummerMenuVoiceData = [
+        {
+          category: "Recruit",
+          lines: [
+            {
+              jp: "この水着、結構いいデザインでしょう？\nふふっ、見惚れちゃったかしら？",
+              zh: "這套泳裝的設計相當不錯對吧？\n呵呵，是不是看入迷了呢？",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_introduce1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_introduce1.mp3",
+            },
+          ],
+        },
+        {
+          category: "Home Screen",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage1.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage2.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage3.mp3",
+            },
+          ],
+        },
+        {
+          category: "Add to Party",
+          lines: [
+            {
+              jp: "私の力が必要？",
+              zh: "需要我的力量嗎？",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_formation01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_formation01.mp3",
+            },
+            {
+              jp: "バカンスを楽しみましょう。",
+              zh: "盡情享受這段度假時光吧。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_formation02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_formation02.mp3",
+            },
+            {
+              jp: "ふふん、付き合ってほしいの？",
+              zh: "哼哼，想和我交往嗎？",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_formation03.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_formation03.mp3",
+            },
+          ],
+        },
+        {
+          category: "Uncap",
+          lines: [
+            {
+              jp: "こうしていつまでもあなたと…なんてね。",
+              zh: "真想就這樣永遠和你在一起…開玩笑的啦。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_evolution01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_evolution01.mp3",
+            },
+          ],
+        },
+        // {
+        //   category: "EM Lvl Up",
+        //   lines: [
+        //     {
+        //       jp: "",
+        //       zh: "",
+        //       Audio:
+        //         "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_evolution02.mp3",
+        //       originalUrl:
+        //         "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_evolution02.mp3",
+        //     },
+        //   ],
+        // },
+        {
+          category: "Journal",
+          lines: [
+            {
+              jp: "あの夜の件は兄上にちゃんと説明して誤解は解けたけれど。\n前よりも兄上が口うるさくなった気がするのよねえ。",
+              zh: "那晚的事情我已經好好跟兄長解釋清楚，誤會也解開了。\n不過，我總覺得兄長變得比以前更愛囉嗦了呢。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_archive01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_archive01.mp3",
+            },
+            {
+              jp: "賢者同士の女子会は、いつかちゃんと開催するつもりよ。",
+              zh: "關於賢者同伴間的女子會，我可是打算找一天正式舉辦的呢。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_archive02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_archive02.mp3",
+            },
+          ],
+        },
+        {
+          category: "EM Perk Lvl Up",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_zenith_up01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_zenith_up01.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_zenith_up02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_zenith_up02.mp3",
+            },
+          ],
+        },
+      ];
+
+const SummerBattleVoiceData = [
+        {
+          category: "Normal Attack",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              audioList: [
+                {
+                  label: "",
+                  Audio:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack01.mp3",
+                  originalUrl:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack01.mp3",
+                },
+              ],
+            },
+            {
+              jp: "",
+              zh: "",
+              audioList: [
+                {
+                  label: "",
+                  Audio:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack02.mp3",
+                  originalUrl:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack02.mp3",
+                },
+              ],
+            },
+            {
+              jp: "",
+              zh: "",
+              audioList: [
+                {
+                  label: "",
+                  Audio:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack03.mp3",
+                  originalUrl:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack03.mp3",
+                },
+              ],
+            },
+            {
+              jp: "",
+              zh: "",
+              audioList: [
+                {
+                  label: "",
+                  Audio:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack04.mp3",
+                  originalUrl:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack04.mp3",
+                },
+              ],
+            },
+            {
+              jp: "",
+              zh: "",
+              audioList: [
+                {
+                  label: "",
+                  Audio:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack05.mp3",
+                  originalUrl:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack05.mp3",
+                },
+              ],
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack06.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack06.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack07.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack07.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack08.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack08.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack09.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack09.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack10.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack10.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack11.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack11.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack12.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack12.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              audioList: [
+                {
+                  label: "",
+                  Audio:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack13.mp3",
+                  originalUrl:
+                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack13.mp3",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          category: "Enemy Defeated",
+          lines: [
+            {
+              jp: "相手が悪かったわね。",
+              zh: "你挑錯對手了呢。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_kill01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_kill01.mp3",
+            },
+            {
+              jp: "ごめんあそばせ。",
+              zh: "抱歉啦～",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_kill02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_kill02.mp3",
+            },
+          ],
+        },
+        {
+          category: "Skill",
+          lines: [
+            {
+              jp: "溺れなさい。",
+              zh: "沉溺其中吧。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_them1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_them1.mp3",
+            },
+            {
+              jp: "耐えられるかしら？",
+              zh: "你能承受得住嗎？",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_them2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_them2.mp3",
+            },
+            {
+              jp: "眩しいわよ！",
+              zh: "很刺眼喔！",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_them3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_them3.mp3",
+            },
+            {
+              jp: "水分補給よ。",
+              zh: "記得補充水分喔。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_us1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_us1.mp3",
+            },
+            {
+              jp: "私が守るわ。",
+              zh: "交給我來保護吧。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_us2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_us2.mp3",
+            },
+            {
+              jp: "諦めないで！",
+              zh: "別放棄！",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_us3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ability_us3.mp3",
+            },
+          ],
+        },
+        {
+          category: "C.A. Ready",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ready01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ready01.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ready02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ready02.mp3",
+            },
+          ],
+        },
+        {
+          category: "Charge Attack",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal1.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal2.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal3.mp3",
+            },
+          ],
+        },
+        {
+          category: "Damage Taken",
+          lines: [
+            {
+              jp: "あはっ…",
+              zh: "啊…",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_damage01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_damage01.mp3",
+            },
+            {
+              jp: "きゃっ…",
+              zh: "呀…",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_damage02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_damage02.mp3",
+            },
+          ],
+        },
+        {
+          category: "Red HP",
+          lines: [
+            {
+              jp: "諦めないわ…",
+              zh: "我不會放棄的…",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_dying01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_dying01.mp3",
+            },
+            {
+              jp: "まだ戦える…",
+              zh: "我還能戰鬥…",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_dying02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_dying02.mp3",
+            },
+          ],
+        },
+        {
+          category: "Knocked Out",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_lose1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_lose1.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_lose2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_lose2.mp3",
+            },
+          ],
+        },
+        {
+          category: "Debuffed",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down01.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down02.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down03.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down03.mp3",
+            },
+            {
+              jp: "喉が渇いたわ…",
+              zh: "喉嚨好乾啊…",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_hp_down01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_hp_down01.mp3",
+            },
+            {
+              jp: "クラクラする…",
+              zh: "頭好暈…",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_hp_down02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_hp_down02.mp3",
+            },
+            {
+              jp: "汗が止まらない…",
+              zh: "汗流個不停…",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_hp_down03.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_hp_down03.mp3",
+            },
+          ],
+        },
+        {
+          category: "Healed",
+          lines: [
+            {
+              jp: "助かったわ。",
+              zh: "得救了呢。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_healed01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_healed01.mp3",
+            },
+            {
+              jp: "気持ちいいわね。",
+              zh: "感覺真好啊。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_healed02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_healed02.mp3",
+            },
+          ],
+        },
+        {
+          category: "Join Battle",
+          lines: [
+            {
+              jp: "いいわ、相手してあげる。",
+              zh: "好啊，我就來當你的對手吧。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_cutin1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_cutin1.mp3",
+            },
+          ],
+        },
+        {
+          category: "Victory",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_win1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_win1.mp3",
+            },
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_win2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_win2.mp3",
+            },
+          ],
+        },
+        {
+          category: "Turn Start",
+          lines: [
+            {
+              jp: "後悔しても遅いわよ。",
+              zh: "現在後悔也來不及了喔。",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_cutin2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_cutin2.mp3",
+            },
+          ],
+        },
+        {
+          category: "MC Defeats Enemy",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player1.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player1.mp3",
+            },
+          ],
+        },
+        {
+          category: "MC C.A. Ready",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player2.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player2.mp3",
+            },
+          ],
+        },
+        {
+          category: "MC Red HP",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player3.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player3.mp3",
+            },
+          ],
+        },
+        {
+          category: "MC Knocked Out",
+          lines: [
+            {
+              jp: "",
+              zh: "",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player4.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player4.mp3",
             },
           ],
         },
@@ -1869,6 +2520,7 @@
         },
         {
           tabCategory: "main",
+          mainTitle: "Battle",
           title: "Battle Voice Lines",
           data: battleVoiceData,
         },
@@ -1931,12 +2583,23 @@
           title: "Christmas Voice Lines",
           data: ChristmasVoiceData,
         },
+        {
+          tabCategory: "summer",
+          mainTitle: "General",
+          title: "Menu Voice Lines",
+          data: SummerMenuVoiceData,
+        },
+        {
+          tabCategory: "summer",
+          mainTitle: "Battle",
+          title: "Battle Voice Lines",
+          data: SummerBattleVoiceData,
+        },
       ];
 
       // 記錄當前頁籤
       let currentTab = "main";
 
-      // 切換頁籤的控制函數
       // 切換頁籤的控制函數
       function switchTab(tabId) {
         currentTab = tabId;
@@ -1944,7 +2607,8 @@
 
         const tabMain = document.getElementById("tab-main");
         const tabAsmr = document.getElementById("tab-asmr");
-        const tabHoliday = document.getElementById("tab-holiday"); // 記得抓取新按鈕
+        const tabHoliday = document.getElementById("tab-holiday");
+        const tabSummer = document.getElementById("tab-summer");
 
         // 先定義好「未選取」的通用樣式
         const inactiveClass =
@@ -1954,8 +2618,8 @@
         tabMain.className = inactiveClass;
         tabAsmr.className = inactiveClass;
         tabHoliday.className = inactiveClass;
+        tabSummer.className = inactiveClass;
 
-        // 根據點擊的 tabId，幫特定的按鈕套用「已選取」的顏色
         if (tabId === "main") {
           tabMain.className =
             "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-blue-500 text-white";
@@ -1964,7 +2628,31 @@
             "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-cyan-500 text-white";
         } else if (tabId === "holiday") {
           tabHoliday.className =
-            "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-violet-500  text-white"; // 節慶給個橘色
+            "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-violet-500  text-white";
+        } else if (tabId === "summer") {
+          tabSummer.className =
+            "px-6 py-2 text-sm md:text-base font-bold rounded-t-md transition-colors bg-fuchsia-500  text-white";
+        }
+
+        const mywifeImg = document.getElementById("my_cute_wife");
+        if (mywifeImg) {
+          if (tabId === "summer") {
+            // 切換到 Summer 時換成泳裝圖片
+            mywifeImg.src =
+              "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040609000_01.png";
+          } else if(tabId === "asmr"){
+            // 其他頁籤維持預設圖片
+            mywifeImg.src =
+              "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_02.png";
+          } else if(tabId === "holiday"){
+            // 其他頁籤維持預設圖片
+            mywifeImg.src =
+              "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3710178000_01.png";
+          } else {
+            // 其他頁籤維持預設圖片
+            mywifeImg.src =
+              "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_91_1.png";
+          }
         }
 
         // 重新渲染表格
