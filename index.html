@@ -563,7 +563,7 @@
             },
             {
               jp: "邪魔よ！",
-              zh: "真擋路！",
+              zh: "真礙事！",
               audioList: [
                 {
                   label: "",
@@ -923,7 +923,7 @@
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_mortal2.mp3",
             },
             {
-              jp: "滅びなさい！イルジオ・フォルモント！",
+              jp: "滅びなさい！イルジオン・フォルモント！",
               zh: "毀滅吧！幻影滿月！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_mortal3.mp3",
@@ -1050,8 +1050,8 @@
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_lose1.mp3",
             },
             {
-              jp: "よくも……許さない！",
-              zh: "竟敢這樣……我絕不原諒你！",
+              jp: "よくも…許さない！",
+              zh: "竟敢這樣…我絕不原諒你！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_03_lose2.mp3",
               originalUrl:
@@ -1421,42 +1421,390 @@
       const suffixAList = [95, 104, 278, 322, 337, 338, 339, 340];
       // 建立一個對照表，直接用檔案的真實編號 (1~372) 當作 Key
       const customTexts = {
-        1: {
-          jp: "text",
-          zh: "text2",
-        },
-        2: {
-          jp: "",
-          zh: "",
-        },
-        3: {
-          jp: "",
-          zh: "",
-        },
-        95: {
-          jp: "",
-          zh: "",
-        },
+        1: { jp: "text", zh: "text2" },
+        2: { jp: "", zh: "" },
+        3: { jp: "", zh: "" },
+        4: { jp: "", zh: "" },
+        5: { jp: "", zh: "" },
+        6: { jp: "", zh: "" },
+        7: { jp: "", zh: "" },
+        8: { jp: "", zh: "" },
+        9: { jp: "", zh: "" },
+        10: { jp: "", zh: "" },
+        11: { jp: "", zh: "" },
+        12: { jp: "", zh: "" },
+        13: { jp: "", zh: "" },
+        14: { jp: "", zh: "" },
+        15: { jp: "", zh: "" },
+        16: { jp: "", zh: "" },
+        17: { jp: "", zh: "" },
+        18: { jp: "", zh: "" },
+        19: { jp: "", zh: "" },
+        20: { jp: "", zh: "" },
+        21: { jp: "", zh: "" },
+        22: { jp: "", zh: "" },
+        23: { jp: "", zh: "" },
+        24: { jp: "", zh: "" },
+        25: { jp: "", zh: "" },
+        26: { jp: "", zh: "" },
+        27: { jp: "", zh: "" },
+        28: { jp: "", zh: "" },
+        29: { jp: "", zh: "" },
+        30: { jp: "", zh: "" },
+        31: { jp: "", zh: "" },
+        32: { jp: "", zh: "" },
+        33: { jp: "", zh: "" },
+        34: { jp: "", zh: "" },
+        35: { jp: "", zh: "" },
+        36: { jp: "", zh: "" },
+        37: { jp: "", zh: "" },
+        38: { jp: "", zh: "" },
+        39: { jp: "", zh: "" },
+        40: { jp: "", zh: "" },
+        41: { jp: "", zh: "" },
+        42: { jp: "", zh: "" },
+        43: { jp: "", zh: "" },
+        44: { jp: "", zh: "" },
+        45: { jp: "", zh: "" },
+        46: { jp: "", zh: "" },
+        47: { jp: "", zh: "" },
+        48: { jp: "", zh: "" },
+        49: { jp: "", zh: "" },
+        50: { jp: "", zh: "" },
+        51: { jp: "", zh: "" },
+        52: { jp: "", zh: "" },
+        53: { jp: "", zh: "" },
+        54: { jp: "", zh: "" },
+        55: { jp: "", zh: "" },
+        56: { jp: "", zh: "" },
+        57: { jp: "", zh: "" },
+        58: { jp: "", zh: "" },
+        59: { jp: "", zh: "" },
+        60: { jp: "", zh: "" },
+        61: { jp: "", zh: "" },
+        62: { jp: "", zh: "" },
+        63: { jp: "", zh: "" },
+        64: { jp: "", zh: "" },
+        65: { jp: "", zh: "" },
+        66: { jp: "", zh: "" },
+        67: { jp: "", zh: "" },
+        68: { jp: "", zh: "" },
+        69: { jp: "", zh: "" },
+        70: { jp: "", zh: "" },
+        71: { jp: "", zh: "" },
+        72: { jp: "", zh: "" },
+        73: { jp: "", zh: "" },
+        74: { jp: "", zh: "" },
+        75: { jp: "", zh: "" },
+        76: { jp: "", zh: "" },
+        77: { jp: "", zh: "" },
+        78: { jp: "", zh: "" },
+        79: { jp: "", zh: "" },
+        80: { jp: "", zh: "" },
+        81: { jp: "", zh: "" },
+        82: { jp: "", zh: "" },
+        83: { jp: "", zh: "" },
+        84: { jp: "", zh: "" },
+        85: { jp: "", zh: "" },
+        86: { jp: "", zh: "" },
+        87: { jp: "", zh: "" },
+        88: { jp: "", zh: "" },
+        89: { jp: "", zh: "" },
+        90: { jp: "", zh: "" },
+        91: { jp: "", zh: "" },
+        92: { jp: "", zh: "" },
+        93: { jp: "", zh: "" },
+        94: { jp: "", zh: "" },
+        95: { jp: "", zh: "" },
+        96: { jp: "", zh: "" },
+        97: { jp: "", zh: "" },
+        98: { jp: "", zh: "" },
+        99: { jp: "", zh: "" },
+        100: { jp: "", zh: "" },
+        101: { jp: "", zh: "" },
+        102: { jp: "", zh: "" },
+        103: { jp: "", zh: "" },
+        104: { jp: "", zh: "" },
+        105: { jp: "", zh: "" },
+        106: { jp: "", zh: "" },
+        107: { jp: "", zh: "" },
+        108: { jp: "", zh: "" },
+        109: { jp: "", zh: "" },
+        110: { jp: "", zh: "" },
+        111: { jp: "", zh: "" },
+        112: { jp: "", zh: "" },
+        113: { jp: "", zh: "" },
+        114: { jp: "", zh: "" },
+        115: { jp: "", zh: "" },
+        116: { jp: "", zh: "" },
+        117: { jp: "", zh: "" },
+        118: { jp: "", zh: "" },
+        119: { jp: "", zh: "" },
+        120: { jp: "", zh: "" },
+        121: { jp: "", zh: "" },
+        122: { jp: "", zh: "" },
+        123: { jp: "", zh: "" },
+        124: { jp: "", zh: "" },
+        125: { jp: "", zh: "" },
+        126: { jp: "", zh: "" },
+        127: { jp: "", zh: "" },
+        128: { jp: "", zh: "" },
+        129: { jp: "", zh: "" },
+        130: { jp: "", zh: "" },
+        131: { jp: "", zh: "" },
+        132: { jp: "", zh: "" },
+        133: { jp: "", zh: "" },
+        134: { jp: "", zh: "" },
+        135: { jp: "", zh: "" },
+        136: { jp: "", zh: "" },
+        137: { jp: "", zh: "" },
+        138: { jp: "", zh: "" },
+        139: { jp: "", zh: "" },
+        140: { jp: "", zh: "" },
+        141: { jp: "", zh: "" },
+        142: { jp: "", zh: "" },
+        143: { jp: "", zh: "" },
+        144: { jp: "", zh: "" },
+        145: { jp: "", zh: "" },
+        146: { jp: "", zh: "" },
+        147: { jp: "", zh: "" },
+        148: { jp: "", zh: "" },
+        149: { jp: "", zh: "" },
+        150: { jp: "", zh: "" },
+        151: { jp: "", zh: "" },
+        152: { jp: "", zh: "" },
+        153: { jp: "", zh: "" },
+        154: { jp: "", zh: "" },
+        155: { jp: "", zh: "" },
+        156: { jp: "", zh: "" },
+        157: { jp: "", zh: "" },
+        158: { jp: "", zh: "" },
+        159: { jp: "", zh: "" },
+        160: { jp: "", zh: "" },
+        161: { jp: "", zh: "" },
+        162: { jp: "", zh: "" },
+        163: { jp: "", zh: "" },
+        164: { jp: "", zh: "" },
+        165: { jp: "", zh: "" },
+        166: { jp: "", zh: "" },
+        167: { jp: "", zh: "" },
+        168: { jp: "", zh: "" },
+        169: { jp: "", zh: "" },
+        170: { jp: "", zh: "" },
+        171: { jp: "", zh: "" },
+        172: { jp: "", zh: "" },
+        173: { jp: "", zh: "" },
+        174: { jp: "", zh: "" },
+        175: { jp: "", zh: "" },
+        176: { jp: "", zh: "" },
+        177: { jp: "", zh: "" },
+        178: { jp: "", zh: "" },
+        179: { jp: "", zh: "" },
+        180: { jp: "", zh: "" },
+        181: { jp: "", zh: "" },
+        182: { jp: "", zh: "" },
+        183: { jp: "", zh: "" },
+        184: { jp: "", zh: "" },
+        185: { jp: "", zh: "" },
+        186: { jp: "", zh: "" },
+        187: { jp: "", zh: "" },
+        188: { jp: "", zh: "" },
+        189: { jp: "", zh: "" },
+        190: { jp: "", zh: "" },
+        191: { jp: "", zh: "" },
+        192: { jp: "", zh: "" },
+        193: { jp: "", zh: "" },
+        194: { jp: "", zh: "" },
+        195: { jp: "", zh: "" },
+        196: { jp: "", zh: "" },
+        197: { jp: "", zh: "" },
+        198: { jp: "", zh: "" },
+        199: { jp: "", zh: "" },
+        200: { jp: "", zh: "" },
+        201: { jp: "", zh: "" },
+        202: { jp: "", zh: "" },
+        203: { jp: "", zh: "" },
+        204: { jp: "", zh: "" },
+        205: { jp: "", zh: "" },
+        206: { jp: "", zh: "" },
+        207: { jp: "", zh: "" },
+        208: { jp: "", zh: "" },
+        209: { jp: "", zh: "" },
+        210: { jp: "", zh: "" },
+        211: { jp: "", zh: "" },
+        212: { jp: "", zh: "" },
+        213: { jp: "", zh: "" },
+        214: { jp: "", zh: "" },
+        215: { jp: "", zh: "" },
+        216: { jp: "", zh: "" },
+        217: { jp: "", zh: "" },
+        218: { jp: "", zh: "" },
+        219: { jp: "", zh: "" },
+        220: { jp: "", zh: "" },
+        221: { jp: "", zh: "" },
+        222: { jp: "", zh: "" },
+        223: { jp: "", zh: "" },
+        224: { jp: "", zh: "" },
+        225: { jp: "", zh: "" },
+        226: { jp: "", zh: "" },
+        227: { jp: "", zh: "" },
+        228: { jp: "", zh: "" },
+        229: { jp: "", zh: "" },
+        230: { jp: "", zh: "" },
+        231: { jp: "", zh: "" },
+        232: { jp: "", zh: "" },
+        233: { jp: "", zh: "" },
+        234: { jp: "", zh: "" },
+        235: { jp: "", zh: "" },
+        236: { jp: "", zh: "" },
+        237: { jp: "", zh: "" },
+        238: { jp: "", zh: "" },
+        239: { jp: "", zh: "" },
+        240: { jp: "", zh: "" },
+        241: { jp: "", zh: "" },
+        242: { jp: "", zh: "" },
+        243: { jp: "", zh: "" },
+        244: { jp: "", zh: "" },
+        245: { jp: "", zh: "" },
+        246: { jp: "", zh: "" },
+        247: { jp: "", zh: "" },
+        248: { jp: "", zh: "" },
+        249: { jp: "", zh: "" },
+        250: { jp: "", zh: "" },
+        251: { jp: "", zh: "" },
+        252: { jp: "", zh: "" },
+        253: { jp: "", zh: "" },
+        254: { jp: "", zh: "" },
+        255: { jp: "", zh: "" },
+        256: { jp: "", zh: "" },
+        257: { jp: "", zh: "" },
+        258: { jp: "", zh: "" },
+        259: { jp: "", zh: "" },
+        260: { jp: "", zh: "" },
+        261: { jp: "", zh: "" },
+        262: { jp: "", zh: "" },
+        263: { jp: "", zh: "" },
+        264: { jp: "", zh: "" },
+        265: { jp: "", zh: "" },
+        266: { jp: "", zh: "" },
+        267: { jp: "", zh: "" },
+        268: { jp: "", zh: "" },
+        269: { jp: "", zh: "" },
+        270: { jp: "", zh: "" },
+        271: { jp: "", zh: "" },
+        272: { jp: "", zh: "" },
+        273: { jp: "", zh: "" },
+        274: { jp: "", zh: "" },
+        275: { jp: "", zh: "" },
+        276: { jp: "", zh: "" },
+        277: { jp: "", zh: "" },
+        278: { jp: "", zh: "" },
+        279: { jp: "", zh: "" },
+        280: { jp: "", zh: "" },
+        281: { jp: "", zh: "" },
+        282: { jp: "", zh: "" },
+        283: { jp: "", zh: "" },
+        284: { jp: "", zh: "" },
+        285: { jp: "", zh: "" },
+        286: { jp: "", zh: "" },
+        287: { jp: "", zh: "" },
+        288: { jp: "", zh: "" },
+        289: { jp: "", zh: "" },
+        290: { jp: "", zh: "" },
+        291: { jp: "", zh: "" },
+        292: { jp: "", zh: "" },
+        293: { jp: "", zh: "" },
+        294: { jp: "", zh: "" },
+        295: { jp: "", zh: "" },
+        296: { jp: "", zh: "" },
+        297: { jp: "", zh: "" },
+        298: { jp: "", zh: "" },
+        299: { jp: "", zh: "" },
+        300: { jp: "", zh: "" },
+        301: { jp: "", zh: "" },
+        302: { jp: "", zh: "" },
+        303: { jp: "", zh: "" },
+        304: { jp: "", zh: "" },
+        305: { jp: "", zh: "" },
+        306: { jp: "", zh: "" },
+        307: { jp: "", zh: "" },
+        308: { jp: "", zh: "" },
+        309: { jp: "", zh: "" },
+        310: { jp: "", zh: "" },
+        311: { jp: "", zh: "" },
+        312: { jp: "", zh: "" },
+        313: { jp: "", zh: "" },
+        314: { jp: "", zh: "" },
+        315: { jp: "", zh: "" },
+        316: { jp: "", zh: "" },
+        317: { jp: "", zh: "" },
+        318: { jp: "", zh: "" },
+        319: { jp: "", zh: "" },
+        320: { jp: "", zh: "" },
+        321: { jp: "", zh: "" },
+        322: { jp: "", zh: "" },
+        323: { jp: "", zh: "" },
+        324: { jp: "", zh: "" },
+        325: { jp: "", zh: "" },
+        326: { jp: "", zh: "" },
+        327: { jp: "", zh: "" },
+        328: { jp: "", zh: "" },
+        329: { jp: "", zh: "" },
+        330: { jp: "", zh: "" },
+        331: { jp: "", zh: "" },
+        332: { jp: "", zh: "" },
+        333: { jp: "", zh: "" },
+        334: { jp: "", zh: "" },
+        335: { jp: "", zh: "" },
+        336: { jp: "", zh: "" },
+        337: { jp: "団長さん", zh: "團長" },
+        341: { jp: "ビィさん", zh: "碧" },
+        345: { jp: "ルリアさん", zh: "露莉亞" },
+        349: { jp: "カタリナさん", zh: "卡塔莉娜" },
+        353: { jp: "ラカムさん", zh: "拉卡姆" },
+        357: { jp: "イオさん", zh: "伊歐" },
+        361: { jp: "オイゲンさん", zh: "尤金" },
+        365: { jp: "ロゼッタさんさん", zh: "蘿賽塔" },
+        369: { jp: "兄上", zh: "兄長大人" },
       };
 
-      for (let i = 1; i <= 372; i++) {
+for (let i = 1; i <= 336; i++) {
         const numStr = String(i).padStart(3, "0");
-        
-        // 檢查這個編號是否在清單內，如果是就給 "_a"，否則就留空 ""
         const suffix = suffixAList.includes(i) ? "_a" : "";
-        
-        // 把 suffix 加進網址的變數裡面
         const url = `https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_${numStr}${suffix}.mp3`;
 
-        // 檢查這個編號有沒有在剛剛的對照表裡？有就套用，沒有就給空字串
-        const currentJp = customTexts[i] ? customTexts[i].jp : "";
-        const currentZh = customTexts[i] ? customTexts[i].zh : "";
-
         generatedAsmrLines.push({
-          jp: currentJp,
-          zh: currentZh,
+          jp: customTexts[i] ? customTexts[i].jp : "",
+          zh: customTexts[i] ? customTexts[i].zh : "",
           Audio: url,
           originalUrl: url,
+        });
+      }
+
+      // 2. 四個一組處理 (337 ~ 372)
+      // 每次跳 4 個數字
+      for (let i = 337; i <= 372; i += 4) {
+        const groupedAudioList = [];
+
+        // 內部再跑一個 0~3 的小迴圈來組合這 4 個音檔
+        for (let j = 0; j < 4; j++) {
+          const currentId = i + j;
+          const numStr = String(currentId).padStart(3, "0");
+          const suffix = suffixAList.includes(currentId) ? "_a" : "";
+          const url = `https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040168000_v_${numStr}${suffix}.mp3`;
+
+          groupedAudioList.push({
+            label: "", // 保持空白標籤
+            Audio: url,
+            originalUrl: url,
+          });
+        }
+
+        // 將組合好的 4 個音檔作為同一列推入陣列
+        generatedAsmrLines.push({
+          jp: customTexts[i] ? customTexts[i].jp : "",
+          zh: customTexts[i] ? customTexts[i].zh : "",
+          audioList: groupedAudioList,
         });
       }
 
@@ -1842,24 +2190,24 @@
           category: "Home Screen",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "水着って不思議よね。開放的な気分になるっていうか、大胆になるっていうか。\nあら？ちょっぴり顔が赤いようだけど？何かを期待してる？団長をからかうのって面白いわ。",
+              zh: "泳裝真是不可思議呢。該說是會讓人覺得心情變得開放呢，還是說會變得比較大膽呢。\n啊啦？你的臉好像有點紅喔？在期待些什麼嗎？逗弄團長真是有趣呢。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage1.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage1.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "海でバカンス…こんな風に穏やかに過ごせる日が来るなんて、復讐に囚われていた過去の自分には、想像すらできなかったわ。\n今の私があるのは、団長のおかげでもある。\n本当に、ありがとう。",
+              zh: "在海邊度假…沒想到會迎來能像這樣平靜度日的這一天，這對過去那個被復仇束縛的自己來說，是連想像都無法想像的。\n我今天能有現在的模樣，也是多虧了團長你。\n真的，非常感謝你。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage2.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage2.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "まさか私が賢者の代表になるとは思っていなかったけれど、選ばれた以上は精一杯務めるつもりよ。\nまとめ役という意味では団長の方が先輩だから、色々頼らせてもらうわね。",
+              zh: "真沒想到我會成為賢者的代表，但既然被選上了，我就會全力以赴。\n就『統籌大家』這點來說，團長才是前輩，之後很多事情還要多仰仗你囉。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mypage3.mp3",
               originalUrl:
@@ -1947,16 +2295,16 @@
           category: "EM Perk Lvl Up",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "いい気分ね。",
+              zh: "感覺真不錯呢。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_zenith_up01.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_zenith_up01.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "新たな才能かしら？",
+              zh: "這是新的能力嗎？",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_zenith_up02.mp3",
               originalUrl:
@@ -1966,143 +2314,113 @@
         },
       ];
 
-const SummerBattleVoiceData = [
+      const SummerBattleVoiceData = [
         {
           category: "Normal Attack",
           lines: [
             {
-              jp: "",
-              zh: "",
-              audioList: [
-                {
-                  label: "",
-                  Audio:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack01.mp3",
-                  originalUrl:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack01.mp3",
-                },
-              ],
+              jp: "ふっ！",
+              zh: "呼！",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack01.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack01.mp3",
             },
             {
-              jp: "",
-              zh: "",
-              audioList: [
-                {
-                  label: "",
-                  Audio:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack02.mp3",
-                  originalUrl:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack02.mp3",
-                },
-              ],
+              jp: "はぁっ！",
+              zh: "喝！",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack02.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack02.mp3",
             },
             {
-              jp: "",
-              zh: "",
-              audioList: [
-                {
-                  label: "",
-                  Audio:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack03.mp3",
-                  originalUrl:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack03.mp3",
-                },
-              ],
+              jp: "だっ！",
+              zh: "噠！",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack03.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack03.mp3",
             },
             {
-              jp: "",
-              zh: "",
-              audioList: [
-                {
-                  label: "",
-                  Audio:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack04.mp3",
-                  originalUrl:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack04.mp3",
-                },
-              ],
+              jp: "だーっ！",
+              zh: "噠啊！",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack04.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack04.mp3",
             },
             {
-              jp: "",
-              zh: "",
-              audioList: [
-                {
-                  label: "",
-                  Audio:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack05.mp3",
-                  originalUrl:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack05.mp3",
-                },
-              ],
+              jp: "やっ！",
+              zh: "呀！",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack05.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack05.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "やー！",
+              zh: "呀啊！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack06.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack06.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "せい！",
+              zh: "喝啊！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack07.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack07.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "ふん！",
+              zh: "哼！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack08.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack08.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "そこ！",
+              zh: "那裡！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack09.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack09.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "邪魔よ！",
+              zh: "真擋路！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack10.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack10.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "ふふっ。",
+              zh: "呵呵。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack11.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack11.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "あらあら。",
+              zh: "啊啦啊啦。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack12.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack12.mp3",
             },
             {
-              jp: "",
-              zh: "",
-              audioList: [
-                {
-                  label: "",
-                  Audio:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack13.mp3",
-                  originalUrl:
-                    "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack13.mp3",
-                },
-              ],
+              jp: "甘いわね！",
+              zh: "太天真了！",
+              Audio:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack13.mp3",
+              originalUrl:
+                "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_attack13.mp3",
             },
           ],
         },
@@ -2184,16 +2502,16 @@ const SummerBattleVoiceData = [
           category: "C.A. Ready",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "痛いじゃ済まないわよ。",
+              zh: "這可不是喊聲『好痛』就能了事的喔！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ready01.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ready01.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "吹き飛びなさい！",
+              zh: "給我灰飛煙滅吧！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_ready02.mp3",
               originalUrl:
@@ -2205,24 +2523,24 @@ const SummerBattleVoiceData = [
           category: "Charge Attack",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "涼しくしてあげるわ。",
+              zh: "讓我來幫你涼快一下吧。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal1.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal1.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "キューレス・リヒト！",
+              zh: "冰冷之光！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal2.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal2.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "涼しくしてあげるわ。キューレス・リヒト！",
+              zh: "讓我來幫你涼快一下吧。冰冷之光！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_mortal3.mp3",
               originalUrl:
@@ -2276,16 +2594,16 @@ const SummerBattleVoiceData = [
           category: "Knocked Out",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "水着がボロボロじゃない！",
+              zh: "泳裝都變得破破爛爛了啦！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_lose1.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_lose1.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "不甲斐ないわね…",
+              zh: "我真是太不中用了…",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_lose2.mp3",
               originalUrl:
@@ -2297,24 +2615,24 @@ const SummerBattleVoiceData = [
           category: "Debuffed",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "あ…暑い。",
+              zh: "啊…好熱喔。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down01.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down01.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "卑怯ね。",
+              zh: "真卑鄙呢。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down02.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down02.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "足が、重い…",
+              zh: "雙腳，好沉重…",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_power_down03.mp3",
               originalUrl:
@@ -2384,16 +2702,16 @@ const SummerBattleVoiceData = [
           category: "Victory",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "賢者の代表を甘く見ないで。",
+              zh: "可別小看賢者的代表喔。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_win1.mp3",
               originalUrl:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_win1.mp3",
             },
             {
-              jp: "",
-              zh: "",
+              jp: "さ、バカンスを楽しみましょう。",
+              zh: "那麼，盡情享受我們的假期吧。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_win2.mp3",
               originalUrl:
@@ -2418,8 +2736,8 @@ const SummerBattleVoiceData = [
           category: "MC Defeats Enemy",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "やるわね。",
+              zh: "做得挺不錯的嘛。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player1.mp3",
               originalUrl:
@@ -2431,8 +2749,8 @@ const SummerBattleVoiceData = [
           category: "MC C.A. Ready",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "団長、とどめよ！",
+              zh: "團長，給他最後一擊吧！",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player2.mp3",
               originalUrl:
@@ -2444,8 +2762,8 @@ const SummerBattleVoiceData = [
           category: "MC Red HP",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "しっかりしなさい、団長。",
+              zh: "振作一點，團長。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player3.mp3",
               originalUrl:
@@ -2457,8 +2775,8 @@ const SummerBattleVoiceData = [
           category: "MC Knocked Out",
           lines: [
             {
-              jp: "",
-              zh: "",
+              jp: "私に任せて。",
+              zh: "交給我吧。",
               Audio:
                 "https://prd-game-a-granbluefantasy.akamaized.net/assets/sound/voice/3040609000_to_player4.mp3",
               originalUrl:
@@ -2639,12 +2957,12 @@ const SummerBattleVoiceData = [
           if (tabId === "summer") {
             // 切換到 Summer 時換成泳裝圖片
             mywifeImg.src =
-              "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040609000_01.png";
-          } else if(tabId === "asmr"){
+              "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040609000_02.png";
+          } else if (tabId === "asmr") {
             // 其他頁籤維持預設圖片
             mywifeImg.src =
               "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3040168000_02.png";
-          } else if(tabId === "holiday"){
+          } else if (tabId === "holiday") {
             // 其他頁籤維持預設圖片
             mywifeImg.src =
               "https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/npc/b/3710178000_01.png";
