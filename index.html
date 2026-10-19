@@ -3497,6 +3497,27 @@
       },
     ];
 
+    tableConfigs.forEach(config => {
+      config.data.forEach(group => {
+        group.lines.forEach(line => {
+          // 處理單一音檔
+          if (line.Audio) {
+            const fileName = line.Audio.split('/').pop(); // 提取檔名，如 3040168000_introduce1.mp3
+            line.Audio = `./voice/${fileName}`;
+          }
+          // 處理含有多音檔的陣列 (audioList)
+          if (line.audioList && line.audioList.length > 0) {
+            line.audioList.forEach(item => {
+              if (item.Audio) {
+                const fileName = item.Audio.split('/').pop();
+                item.Audio = `./voice/${fileName}`;
+              }
+            });
+          }
+        });
+      });
+    });
+
     // 記錄當前頁籤
     let currentTab = "main";
 
